@@ -9,5 +9,5 @@ class Permission extends Model
 {
     use HasPermissionsTrait;
 
-    //protected $primaryKey = 'id';
+    protected $table = 'permissions';
 }

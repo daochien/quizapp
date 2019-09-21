@@ -21,12 +21,12 @@ class PermissionTableSeeder extends Seeder
         $createTasks->slug = 'create-tasks';
         $createTasks->name = 'Create Tasks';
         $createTasks->save();
-        $createTasks->roles()->attach($dev_role);
+        $createTasks->rolePermission()->attach($dev_role);
 
         $editUsers = new Permission();
         $editUsers->slug = 'edit-users';
         $editUsers->name = 'Edit Users';
         $editUsers->save();
-        $editUsers->roles()->attach($manager_role);
+        $editUsers->rolePermission()->attach($manager_role);
     }
 }

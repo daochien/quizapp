@@ -12,7 +12,17 @@ trait HasPermissionsTrait
 
     public function permissions()
     {
-        return $this->belongsToMany(Permission::class, 'users_permission');
+        return $this->belongsToMany(Permission::class, 'users_permissions');
+    }
+
+    public function rolePermission()
+    {
+        return $this->belongsToMany(Role::class, 'roles_permissions');
+    }
+
+    public function permissionRole()
+    {
+        return $this->belongsToMany(Permission::class, 'roles_permissions');
     }
 
     public function hasRole(...$roles)
@@ -30,7 +40,7 @@ trait HasPermissionsTrait
     /** 1 user co the lay quyen thong qua vai tro */
     public function hasPermissionThroughRole($permission)
     {
-        foreach($permission->roles as $role)
+        foreach($permission->rolePermission as $role)
         {
             if($this->roles->contains($role))
             {

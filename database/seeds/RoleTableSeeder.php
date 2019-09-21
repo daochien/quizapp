@@ -22,12 +22,12 @@ class RoleTableSeeder extends Seeder
         $dev_role->slug = 'developer';
         $dev_role->name = 'Front-end Developer';
         $dev_role->save();
-        $dev_role->permissions()->attach($dev_permission);
+        $dev_role->permissionRole()->attach($dev_permission);
 
         $manager_role = new Role();
         $manager_role->slug = 'manager';
         $manager_role->name = 'Assistant Manager';
         $manager_role->save();
-        $manager_role->permissions()->attach($manager_permission);
+        $manager_role->permissionRole()->attach($manager_permission);
     }
 }
