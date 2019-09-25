@@ -18,3 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'app' , 'as' => 'admin.'], function() {
+    Route::get('/', 'App\AppController@index')->name('index');
+    Route::get('login', 'App\AppController@login')->name('login');
+    Route::get('register', 'App\AppController@register')->name('register');
+    Route::get('/{any}', 'App\AppController@index')->where('any', '.*');
+});
