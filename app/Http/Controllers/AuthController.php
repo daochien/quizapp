@@ -79,15 +79,20 @@ class AuthController extends Controller
 
             if ($validator->fails())
             {
-                throw new \Exception($validator->errors()->first());
+                return response()->json([
+                    'status' => false,
+                    'message' => $validator->errors()->first(),
+                    'errors' => $validator->errors()
+                ]);
             }
 
             $credentials = request(['email', 'password']);
             if(!Auth::attempt($credentials))
             {
                 return response()->json([
-                    'message' => 'Unauthorized'
-                ], 401);
+                    'status' => false,
+                    'message' => 'Wrong username or password!'
+                ]);
             }
 
             $user = $request->user();
