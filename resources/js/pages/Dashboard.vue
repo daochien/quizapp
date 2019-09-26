@@ -8,7 +8,9 @@
             <side-bar></side-bar>
             <!-- partial -->
             <div class="main-panel">
-                <div class="content-wrapper"> </div>
+                <div class="content-wrapper">
+                    <router-view></router-view>
+                </div>
                 <!-- content-wrapper ends -->
                 <!-- partial:../../partials/_footer.html -->
                 <footer-bar></footer-bar>

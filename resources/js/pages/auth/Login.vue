@@ -5,29 +5,19 @@
                 <div class="row w-100">
                     <div class="col-lg-4 mx-auto">
                         <div class="auto-form-wrapper">
+                            <div class="alert alert-danger" role="alert" v-if="error_msg">
+                                {{this.error_msg}}
+                            </div>
                             <form @submit.prevent="login()">
                                 <div class="form-group" :class="[ errors.email && user.email.length == 0 ? 'has-danger' : '']">
-                                    <label class="label">Email</label>
-                                    <div class="input-group">
-                                        <input type="text" v-model="user.email" class="form-control" placeholder="Email">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">
-                                                <i class="mdi mdi-check-circle-outline"></i>
-                                            </span>
-                                        </div>
-                                         <!-- <span v-if="errors.email && user.email.length == 0" :class="['label label-danger']">{{ errors.email[0] }}</span> -->
-                                    </div>
+                                    <label for="Email">Email</label>
+                                    <input type="text" v-model="user.email" class="form-control login-input" placeholder="Email" id="Email">
+                                    <span v-if="errors.email && user.email.length == 0" :class="['label label-danger']">{{ errors.email[0] }}</span>
                                 </div>
-                                <div class="form-group">
-                                    <label class="label">Password</label>
-                                    <div class="input-group">
-                                        <input type="password" v-model="user.password" class="form-control" placeholder="*********">
-                                            <div class="input-group-append">
-                                            <span class="input-group-text">
-                                                <i class="mdi mdi-check-circle-outline"></i>
-                                            </span>
-                                        </div>
-                                    </div>
+                                <div class="form-group" :class="[ errors.password && user.password.length == 0 ? 'has-danger' : '']">
+                                    <label for="Password">Password</label>
+                                    <input type="password" v-model="user.password" class="form-control login-input" placeholder="*********" id="EmaPasswordil">
+                                    <span v-if="errors.password && user.password.length == 0" :class="['label label-danger']">{{ errors.password[0] }}</span>
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-primary submit-btn btn-block">Login</button>
@@ -71,6 +61,8 @@
 </template>
 <script>
 import { signIn } from '@/apis/auth.js';
+import { mapMutations } from 'vuex';
+import { setToken } from '@/utils/auth.js';
 export default {
     data () {
         return {
@@ -80,24 +72,58 @@ export default {
                 remember_me: 0
             },
             errors: '',
-            message: ''
+            error_msg: ''
         }
     },
+    watch: {
+
+    },
     methods: {
+        ...mapMutations('user', [
+            'set_is_login',
+            'set_name'
+        ]),
+
         /**
          * function login
-         * @param object user
+         * @param [sring] email
+         * @param [sring] password
          * @return response
         */
         async login () {
             try {
-                let data = await signIn(this.user);
-                console.log(data);
+                let { access_token, name } = await signIn(this.user);
+                this.set_is_login(true);
+                this.set_name(name);
+                setToken(access_token);
+                this.$router.push({ name: 'Dashboard' });
             } catch(err) {
+                this.error_msg = err.message ? err.message : '';
                 this.errors = err.errors ? err.errors : [];
-                this.message = err.message;
             }
+
+
         }
+    },
+    created() {
+
     }
 }
 </script>
+<style lang="scss" scoped>
+.has-danger {
+    input, select, textarea {
+        border-color: #ff6258;
+    }
+    .label-danger {
+        font-size: 12px;
+        color: #ff6258;
+    }
+}
+.alert-danger {
+    font-size: 12px;
+}
+.login-input {
+    height: 44px;
+}
+</style>

@@ -22,3 +22,18 @@ export function signIn (data) {
         })
     });
 }
+
+export function getUser() {
+    return new Promise((resolve, reject) => {
+        return request({
+            url: '/auth/user',
+            method: 'get'
+        })
+        .then((response) => {
+            resolve(response);
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    });
+}

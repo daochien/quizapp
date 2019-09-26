@@ -15,10 +15,10 @@
             </li>
             <li class="nav-item nav-category">Main Menu</li>
             <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
+            <router-link :to="{name: 'Dashboard'}" class="nav-link" href="../../index.html">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Dashboard</span>
-            </a>
+            </router-link>
             </li>
             <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
@@ -41,10 +41,10 @@
             </div>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="../../pages/forms/basic_elements.html">
-                <i class="menu-icon typcn typcn-shopping-bag"></i>
-                <span class="menu-title">Form elements</span>
-            </a>
+                <router-link :to="{name: 'Course'}" class="nav-link" href="../../pages/forms/basic_elements.html">
+                    <i class="menu-icon typcn typcn-shopping-bag"></i>
+                    <span class="menu-title">Quản lý khóa học</span>
+                </router-link>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="../../pages/charts/chartjs.html">

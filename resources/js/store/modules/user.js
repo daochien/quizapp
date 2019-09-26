@@ -1,6 +1,8 @@
+import { getToken } from '@/utils/auth.js';
+
 const state = {
     isLogin: false,
-    token: '',
+    token: getToken(),
     name: ''
 }
 
@@ -23,7 +25,6 @@ const mutations = {
 }
 
 const actions = {
-
 }
 
 export default {

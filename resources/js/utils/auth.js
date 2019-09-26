@@ -3,7 +3,7 @@
 */
 import Cookies from 'js-cookie';
 
-const tokenKey = 'Admin-Token';
+const tokenKey = 'Quizz-Token';
 
 export function getToken () {
     return Cookies.get(tokenKey);
