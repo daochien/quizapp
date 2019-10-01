@@ -25,3 +25,10 @@ Route::group(['prefix' => 'app' , 'as' => 'admin.'], function() {
     Route::get('register', 'App\AppController@register')->name('register');
     Route::get('/{any}', 'App\AppController@index')->where('any', '.*');
 });
+
+Route::get('google', function () {
+    return view('auth.googleAuth');
+});
+    
+Route::get('auth/google', 'AuthController@redirectToGoogle');
+Route::get('auth/google/callback', 'AuthController@handleGoogleCallback');

@@ -137,7 +137,7 @@
                 <a class="dropdown-item">Messages<i class="dropdown-item-icon ti-comment-alt"></i></a>
                 <a class="dropdown-item">Activity<i class="dropdown-item-icon ti-location-arrow"></i></a>
                 <a class="dropdown-item">FAQ<i class="dropdown-item-icon ti-help-alt"></i></a>
-                <a class="dropdown-item">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
+                <a class="dropdown-item" @click="signOut()">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
               </div>
             </li>
           </ul>
@@ -148,7 +148,31 @@
     </nav>
 </template>
 <script>
+import { logout } from '@/apis/auth.js';
+import { getToken, removeToken } from '@/utils/auth.js';
 export default {
+  data() {
+    return {
 
+    }
+  },
+  methods: {
+    async signOut() {
+      try {
+        await logout();
+        this.$store.commit('user/set_is_login', false);
+        removeToken();
+        this.$router.push({name: 'Login'});
+      } catch(errors) {
+        console.log(errors);
+      }
+    }
+  }
+  
 }
 </script>
+<style lang="scss" scoped>
+.dropdown-item {
+  cursor: pointer;
+}
+</style>

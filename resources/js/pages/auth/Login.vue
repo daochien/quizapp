@@ -8,7 +8,7 @@
                             <div class="alert alert-danger" role="alert" v-if="error_msg">
                                 {{this.error_msg}}
                             </div>
-                            <form @submit.prevent="login()">
+                            <!-- <form @submit.prevent="login()"> -->
                                 <div class="form-group" :class="[ errors.email && user.email.length == 0 ? 'has-danger' : '']">
                                     <label for="Email">Email</label>
                                     <input type="text" v-model="user.email" class="form-control login-input" placeholder="Email" id="Email">
@@ -20,7 +20,7 @@
                                     <span v-if="errors.password && user.password.length == 0" :class="['label label-danger']">{{ errors.password[0] }}</span>
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn btn-primary submit-btn btn-block">Login</button>
+                                    <button class="btn btn-primary submit-btn btn-block" @click="login()">Login</button>
                                 </div>
                                 <div class="form-group d-flex justify-content-between">
                                     <div class="form-check form-check-flat mt-0">
@@ -30,14 +30,14 @@
                                     <a href="#" class="text-small forgot-password text-black">Forgot Password</a>
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn btn-block g-login">
+                                    <button class="btn btn-block g-login" @click="loginByGoogle()">
                                         <img class="mr-3" :src="'/admin/assets/images/file-icons/icon-google.svg'" alt="">Log in with Google</button>
                                     </div>
                                 <div class="text-block text-center my-3">
                                     <span class="text-small font-weight-semibold">Not a member ?</span>
                                     <router-link :to="{name: 'Register'}" class="text-black text-small">Create new account</router-link>
                                 </div>
-                            </form>
+                            <!-- </form> -->
                         </div>
                         <ul class="auth-footer">
                             <li>
@@ -96,17 +96,19 @@ export default {
                 this.set_is_login(true);
                 this.set_name(name);
                 setToken(access_token);
+                
                 this.$router.push({ name: 'Dashboard' });
             } catch(err) {
                 this.error_msg = err.message ? err.message : '';
                 this.errors = err.errors ? err.errors : [];
             }
-
-
+        },
+        loginByGoogle() {
+            window.location.href = "/auth/google";
         }
     },
     created() {
-
+        
     }
 }
 </script>

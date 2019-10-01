@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import { getToken } from '@/utils/auth.js';
+import { getToken, removeToken } from '@/utils/auth.js';
 import { getUser } from '@/apis/auth.js';
 import store from '@/store/index.js';
 
@@ -55,12 +55,21 @@ const router = new VueRouter({
 //check login
 router.beforeEach( async (to, from, next) => {
     let token = getToken();
+    
     if (to.matched.some(record => record.meta.requiresAuth)) {
         if (token) {
             try {
-                await getUser();
+                let status = store.getters['user/getIsLogin'];
+                
+                if(!status) {
+                    let { name } = await getUser();
+                    store.commit('user/set_is_login', true);
+                    store.commit('user/set_name', name);
+                }
                 next();
+                
             } catch(error) {
+                store.commit('user/set_is_login', false);
                 removeToken();
                 next({name: 'Login'});
             }
@@ -68,6 +77,7 @@ router.beforeEach( async (to, from, next) => {
             next('app/login');
         }
     } else {
+        //return;
         if(token) {
             if(to.name === 'Login' || to.name === 'Register') {
                 let redirect = from.name ? from.name : 'Dashboard'

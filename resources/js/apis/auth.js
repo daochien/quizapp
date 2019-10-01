@@ -30,10 +30,32 @@ export function getUser() {
             method: 'get'
         })
         .then((response) => {
-            resolve(response);
+            if(response.status) {
+                resolve(response.data);
+            } else {
+                reject(response.message);
+            }
         })
         .catch((error) => {
             reject(error)
         })
+    });
+}
+
+export function logout() {
+    return new Promise( (resolve, reject) => {
+        return request({
+            url: '/auth/logout',
+            method: 'post'
+        })
+        .then((response) => {
+            if(response.status) {
+                resolve(response.message)
+            } else {
+                reject(response.message)
+            }
+        }).catch((error) => {
+            reject(error);
+        });
     });
 }

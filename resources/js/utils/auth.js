@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 
 const tokenKey = 'Quizz-Token';
 
-export function getToken () {
+export function getToken () {    
     return Cookies.get(tokenKey);
 }
 

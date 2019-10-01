@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\User;
 use Validator;
+use Socialite;
 
 class AuthController extends Controller
 {
@@ -135,10 +136,22 @@ class AuthController extends Controller
      */
     public function logout(Request $request)
     {
-        $request->user()->token()->revoke();
-        return response()->json([
-            'message' => 'Successfully logged out'
-        ]);
+        try
+        {
+            $request->user()->token()->revoke();
+            return response()->json([
+                'status' => true,
+                'message' => 'Successfully logged out'
+            ]);
+        }
+        catch(\Exception $e)
+        {
+            return response()->json([
+                'status' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
+        
     }
 
     /**
@@ -148,6 +161,80 @@ class AuthController extends Controller
      */
     public function user(Request $request)
     {
-        return response()->json($request->user());
+        try
+        {
+            return response()->json([
+                'status' => true,
+                'data' => [
+                    'name' => $request->user()->name,
+                    'email' => $request->user()->email,
+                ]
+            ]);
+        }
+        catch(\Exception $e)
+        {
+            return response()->json([
+                'status' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
+        return response()->json();
+    }
+
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+   
+    public function handleGoogleCallback(Request $request)
+    {
+        try {
+  
+            $user = Socialite::driver('google')->user();
+            $finduser = User::where('google_id', $user->id)->first();
+            
+            if($finduser)
+            {
+                Auth::login($finduser);
+            }
+            else
+            {
+                $newUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'google_id' => $user->id,
+                    'password' => bcrypt('abcd@1234')
+                ]);
+                    
+                Auth::login($newUser);
+            }
+
+            $user = !empty($finduser) ? $finduser : $newUser;
+
+            $tokenResult = $user->createToken('Personal Access Token');
+            $token = $tokenResult->token;
+            
+            $token->save();
+
+            $cookie = cookie('Quizz-Token', $tokenResult->accessToken, null, null, null, false, false);
+            return redirect('app')->withCookie($cookie);
+
+            // return response()->json([
+            //     'status' => true,
+            //     'data' => [
+            //         'name' => $user->name,
+            //         'access_token' => $tokenResult->accessToken,
+            //         'token_type' => 'Bearer',
+            //         'expires_at' => Carbon::parse(
+            //             $tokenResult->token->expires_at
+            //         )->toDateTimeString()
+            //     ]
+            // ]);
+  
+        }
+        catch (\Exception $e)
+        {
+            return redirect('auth/google');
+        }
     }
 }
