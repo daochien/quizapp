@@ -10,6 +10,15 @@ mix.webpackConfig({
     }
 });
 
+
+if (mix.inProduction()) {
+    mix.version().webpackConfig({
+        output: {
+            chunkFilename: '[name].[hash].js'
+        }
+    })
+}
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

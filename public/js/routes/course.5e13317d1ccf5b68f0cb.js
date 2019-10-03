@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{"7grs":function(e,n,s){"use strict";s.r(n);var t={},i=s("KHd+"),a=Object(i.a)(t,(function(){var e=this.$createElement;return(this._self._c||e)("div",[this._v("\n    This is course manage page\n")])}),[],!1,null,"1e7ed6be",null);n.default=a.exports}}]);

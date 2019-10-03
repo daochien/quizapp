@@ -6,16 +6,11 @@ import store from '@/store/index.js';
 
 Vue.use(VueRouter);
 
-import LoginPage from '@/pages/auth/Login';
-import RegisterPage from '@/pages/auth/Register';
-import DashboardPage from '@/pages/Dashboard.vue';
-import CourseManagePage from '@/pages/course/Manage.vue';
-
 export const constantRouter = [
     {
         path: '/app',
         name: 'Dashboard',
-        component: DashboardPage,
+        component: () => import(/* webpackChunkName: "js/routes/dashboard" */ '@/pages/Dashboard.vue'),
         meta: {
             requiresAuth: true
         },
@@ -23,26 +18,26 @@ export const constantRouter = [
             {
                 path: 'course',
                 name: 'Course',
-                component: CourseManagePage,
+                component: () => import(/* webpackChunkName: "js/routes/course" */ '@/pages/course/Manage.vue'),
                 redirect: "/app/course/manage",
             },
 
             {
                 path: 'course/manage',
                 name: 'CourseManage',
-                component: CourseManagePage
+                component: () => import(/* webpackChunkName: "js/routes/course-manage" */ '@/pages/course/Manage.vue')
             }
         ]
     },
     {
         path: '/app/login',
         name: 'Login',
-        component: LoginPage
+        component: () => import(/* webpackChunkName: "js/routes/login" */ '@/pages/auth/Login.vue')
     },
     {
         path: '/app/register',
         name: 'Register',
-        component: RegisterPage
+        component: () => import(/* webpackChunkName: "js/routes/course" */ '@/pages/auth/Register.vue')
     }
 ];
 
@@ -57,7 +52,9 @@ router.beforeEach( async (to, from, next) => {
     let token = getToken();
     
     if (to.matched.some(record => record.meta.requiresAuth)) {
+        
         if (token) {
+            
             try {
                 let status = store.getters['user/getIsLogin'];
                 
@@ -74,8 +71,10 @@ router.beforeEach( async (to, from, next) => {
                 next({name: 'Login'});
             }
         } else {
+            
             next('app/login');
         }
+        
     } else {
         //return;
         if(token) {

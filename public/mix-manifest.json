@@ -1,4 +1,8 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/js/app.js": "/js/app.js?id=69e83647118d7a4b1903",
+    "/css/app.css": "/css/app.css?id=33e746eff21c53ed136b",
+    "/js/routes/course.94aa0c6a96df6fc99a17.js": "/js/routes/course.94aa0c6a96df6fc99a17.js?id=8e5995268a613af3ad54",
+    "/js/routes/course-manage.94aa0c6a96df6fc99a17.js": "/js/routes/course-manage.94aa0c6a96df6fc99a17.js?id=c19c5d4b069f0ee58d74",
+    "/js/routes/dashboard.94aa0c6a96df6fc99a17.js": "/js/routes/dashboard.94aa0c6a96df6fc99a17.js?id=ed5f289072fde89cbcad",
+    "/js/routes/login.94aa0c6a96df6fc99a17.js": "/js/routes/login.94aa0c6a96df6fc99a17.js?id=463cdafa21b99559190b"
 }

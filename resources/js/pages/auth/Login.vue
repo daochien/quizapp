@@ -112,8 +112,8 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
-.has-danger {
+<style >
+/* .has-danger {
     input, select, textarea {
         border-color: #ff6258;
     }
@@ -121,7 +121,7 @@ export default {
         font-size: 12px;
         color: #ff6258;
     }
-}
+} */
 .alert-danger {
     font-size: 12px;
 }

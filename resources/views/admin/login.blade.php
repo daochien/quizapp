@@ -9,5 +9,5 @@
     </div>
 @endsection
 @push('scripts')
-    <script src="{{asset('js/app.js?v='.time())}}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
 @endpush
