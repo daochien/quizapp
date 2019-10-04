@@ -96,7 +96,7 @@ export default {
                 this.set_is_login(true);
                 this.set_name(name);
                 setToken(access_token);
-                
+
                 this.$router.push({ name: 'Dashboard' });
             } catch(err) {
                 this.error_msg = err.message ? err.message : '';
@@ -108,12 +108,12 @@ export default {
         }
     },
     created() {
-        
+
     }
 }
 </script>
-<style >
-/* .has-danger {
+<style lang="scss" scoped>
+.has-danger {
     input, select, textarea {
         border-color: #ff6258;
     }
@@ -121,7 +121,7 @@ export default {
         font-size: 12px;
         color: #ff6258;
     }
-} */
+}
 .alert-danger {
     font-size: 12px;
 }

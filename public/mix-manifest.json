@@ -1,8 +1,8 @@
 {
-    "/js/app.js": "/js/app.js?id=69e83647118d7a4b1903",
-    "/css/app.css": "/css/app.css?id=33e746eff21c53ed136b",
-    "/js/routes/course.94aa0c6a96df6fc99a17.js": "/js/routes/course.94aa0c6a96df6fc99a17.js?id=8e5995268a613af3ad54",
-    "/js/routes/course-manage.94aa0c6a96df6fc99a17.js": "/js/routes/course-manage.94aa0c6a96df6fc99a17.js?id=c19c5d4b069f0ee58d74",
-    "/js/routes/dashboard.94aa0c6a96df6fc99a17.js": "/js/routes/dashboard.94aa0c6a96df6fc99a17.js?id=ed5f289072fde89cbcad",
-    "/js/routes/login.94aa0c6a96df6fc99a17.js": "/js/routes/login.94aa0c6a96df6fc99a17.js?id=463cdafa21b99559190b"
+    "/js/routes/course.1fc9f67088c8321e3039.js": "/js/routes/course.1fc9f67088c8321e3039.js?id=9c496cbd66d4b868e78d",
+    "/js/routes/dashboard.1fc9f67088c8321e3039.js": "/js/routes/dashboard.1fc9f67088c8321e3039.js?id=45924c935a243791f747",
+    "/js/routes/login.1fc9f67088c8321e3039.js": "/js/routes/login.1fc9f67088c8321e3039.js?id=cbaddc7aa8071eebfb75",
+    "/js/routes/course-manage.1fc9f67088c8321e3039.js": "/js/routes/course-manage.1fc9f67088c8321e3039.js?id=c22a2a29054b5bd6d5b6",
+    "/js/app.js": "/js/app.js?id=208ac645852b452cf4b9",
+    "/css/app.css": "/css/app.css?id=9ff336cd9cbfec04222a"
 }

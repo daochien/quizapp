@@ -23,8 +23,9 @@
 </template>
 <script>
 import NavBar from '@/layouts/Navbar';
-import SideBar from '@/layouts/Sidebar';
-import FooterBar from '@/layouts/Footerbar';
+import SideBar from '@/layouts/SideBar';
+import FooterBar from '@/layouts/FooterBar';
+
 export default {
     components: {
         NavBar,
