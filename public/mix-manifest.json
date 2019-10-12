@@ -1,8 +1,15 @@
 {
-    "/js/routes/course.1fc9f67088c8321e3039.js": "/js/routes/course.1fc9f67088c8321e3039.js?id=9c496cbd66d4b868e78d",
-    "/js/routes/dashboard.1fc9f67088c8321e3039.js": "/js/routes/dashboard.1fc9f67088c8321e3039.js?id=45924c935a243791f747",
-    "/js/routes/login.1fc9f67088c8321e3039.js": "/js/routes/login.1fc9f67088c8321e3039.js?id=cbaddc7aa8071eebfb75",
-    "/js/routes/course-manage.1fc9f67088c8321e3039.js": "/js/routes/course-manage.1fc9f67088c8321e3039.js?id=c22a2a29054b5bd6d5b6",
-    "/js/app.js": "/js/app.js?id=208ac645852b452cf4b9",
+    "/js/routes/course.3504426e81a6970abb96.js": "/js/routes/course.3504426e81a6970abb96.js?id=db12fb24966cf1ac4335",
+    "/js/routes/dashboard.3504426e81a6970abb96.js": "/js/routes/dashboard.3504426e81a6970abb96.js?id=a81e6c5c74a46c30da28",
+    "/js/routes/question-edit.3504426e81a6970abb96.js": "/js/routes/question-edit.3504426e81a6970abb96.js?id=fded07e26577866d6084",
+    "/js/routes/course-create.3504426e81a6970abb96.js": "/js/routes/course-create.3504426e81a6970abb96.js?id=d9e6f0baec6ba58e2f48",
+    "/js/routes/media.3504426e81a6970abb96.js": "/js/routes/media.3504426e81a6970abb96.js?id=227167d4d6c58604281d",
+    "/js/routes/course-edit.3504426e81a6970abb96.js": "/js/routes/course-edit.3504426e81a6970abb96.js?id=9b720f9456c1ddf2e716",
+    "/js/routes/question-manage.3504426e81a6970abb96.js": "/js/routes/question-manage.3504426e81a6970abb96.js?id=da7631ed7559b2c95979",
+    "/js/routes/question-create.3504426e81a6970abb96.js": "/js/routes/question-create.3504426e81a6970abb96.js?id=dd8dfee40dc53b2ff987",
+    "/js/routes/login.3504426e81a6970abb96.js": "/js/routes/login.3504426e81a6970abb96.js?id=5d0af0dee2fddc9217e5",
+    "/js/routes/course-manage.3504426e81a6970abb96.js": "/js/routes/course-manage.3504426e81a6970abb96.js?id=50d810645768e7abc849",
+    "/js/routes/question.3504426e81a6970abb96.js": "/js/routes/question.3504426e81a6970abb96.js?id=fc72dad246a5eb7f9cb9",
+    "/js/app.js": "/js/app.js?id=19f5580b7a6bb3b00b99",
     "/css/app.css": "/css/app.css?id=9ff336cd9cbfec04222a"
 }

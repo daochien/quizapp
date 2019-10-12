@@ -130,8 +130,8 @@
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 <div class="dropdown-header text-center">
                   <img class="img-md rounded-circle" src="/admin/assets/images/faces/face8.jpg" alt="Profile image">
-                  <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-                  <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
+                  <p class="mb-1 mt-3 font-weight-semibold">{{ getName }}</p>
+                  <p class="font-weight-light text-muted mb-0">{{ getEmail }}</p>
                 </div>
                 <a class="dropdown-item">My Profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
                 <a class="dropdown-item">Messages<i class="dropdown-item-icon ti-comment-alt"></i></a>
@@ -141,7 +141,7 @@
               </div>
             </li>
           </ul>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas" @click="showMenuMobile()">
             <span class="mdi mdi-menu"></span>
           </button>
         </div>
@@ -150,13 +150,27 @@
 <script>
 import { logout } from '@/apis/auth.js';
 import { getToken, removeToken } from '@/utils/auth.js';
+import { mapGetters, mapMutations } from 'vuex';
 export default {
   data() {
     return {
-
+        showSideBarMobile: false
     }
   },
+  computed: {
+      ...mapGetters('user', [
+          'getName',
+          'getEmail'
+      ])
+  },
   methods: {
+    ...mapMutations('sidebar', [
+        'set_active'
+    ]),
+    showMenuMobile() {
+        this.showSideBarMobile = !this.showSideBarMobile;
+        this.set_active(this.showSideBarMobile);
+    },
     async signOut() {
       try {
         await logout();
@@ -166,7 +180,7 @@ export default {
       } catch(errors) {
         console.log(errors);
       }
-    }
+    },
   }
 
 }

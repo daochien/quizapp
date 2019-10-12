@@ -3,7 +3,8 @@ import { getToken } from '@/utils/auth.js';
 const state = {
     isLogin: false,
     token: getToken(),
-    name: ''
+    name: '',
+    email: ''
 }
 
 const getters = {
@@ -12,6 +13,9 @@ const getters = {
     },
     getName (state) {
         return state.name;
+    },
+    getEmail (state) {
+        return state.email;
     }
 }
 
@@ -21,6 +25,9 @@ const mutations = {
     },
     set_name (state, name) {
         state.name = name;
+    },
+    set_email (state, email) {
+        state.email = email;
     }
 }
 

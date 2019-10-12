@@ -1,5 +1,5 @@
 <template>
-    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <nav class="sidebar sidebar-offcanvas" :class="{'active': activeMenuMobile}" id="sidebar">
         <ul class="nav">
             <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
@@ -8,7 +8,7 @@
                 <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
-                <p class="profile-name">Allen Moreno</p>
+                <p class="profile-name">{{ getName }}</p>
                 <p class="designation">Premium user</p>
                 </div>
             </a>
@@ -20,82 +20,39 @@
                 <span class="menu-title">Dashboard</span>
             </router-link>
             </li>
+
             <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="menu-icon typcn typcn-coffee"></i>
-                <span class="menu-title">Basic UI Elements</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                <li class="nav-item">
-                    <a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../../pages/ui-features/dropdowns.html">Dropdowns</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a>
-                </li>
-                </ul>
-            </div>
-            </li>
-            <li class="nav-item">
-                <router-link :to="{name: 'Course'}" class="nav-link" href="../../pages/forms/basic_elements.html">
+                <router-link :to="{name: 'CourseManage'}" class="nav-link">
                     <i class="menu-icon typcn typcn-shopping-bag"></i>
                     <span class="menu-title">Quản lý khóa học</span>
                 </router-link>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="../../pages/charts/chartjs.html">
-                <i class="menu-icon typcn typcn-th-large-outline"></i>
-                <span class="menu-title">Charts</span>
-            </a>
+                <router-link class="nav-link" :to="{name: 'QuestionManage'}">
+                    <i class="menu-icon typcn typcn-th-large-outline"></i>
+                    <span class="menu-title">Quản lý câu hỏi</span>
+                </router-link>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="../../pages/tables/basic-table.html">
-                <i class="menu-icon typcn typcn-bell"></i>
-                <span class="menu-title">Tables</span>
-            </a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="../../pages/icons/font-awesome.html">
-                <i class="menu-icon typcn typcn-user-outline"></i>
-                <span class="menu-title">Icons</span>
-            </a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                <i class="menu-icon typcn typcn-document-add"></i>
-                <span class="menu-title">User Pages</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-                <ul class="nav flex-column sub-menu">
-                <li class="nav-item">
-                    <a class="nav-link" href="../../pages/samples/blank-page.html"> Blank Page </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../../pages/samples/login.html"> Login </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../../pages/samples/register.html"> Register </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../../pages/samples/error-404.html"> 404 </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../../pages/samples/error-500.html"> 500 </a>
-                </li>
-                </ul>
-            </div>
+                <router-link class="nav-link" :to="{name: 'Media'}">
+                    <i class="menu-icon typcn typcn-bell"></i>
+                    <span class="menu-title">Quản lý media</span>
+                </router-link>
             </li>
         </ul>
     </nav>
 </template>
 <script>
+import { mapGetters } from 'vuex';
 export default {
-
+    computed: {
+        ...mapGetters('user', [
+            'getName'
+        ]),
+        ...mapGetters('sidebar', [
+            'activeMenuMobile'
+        ])
+    }
 }
 </script>
 <style scoped>
