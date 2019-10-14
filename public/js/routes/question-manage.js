@@ -1,249 +1,12 @@
 webpackJsonp([2],{
 
-/***/ 103:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12 grid-margin stretch-card" }, [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-inverse-primary btn-fw",
-              attrs: { type: "button" }
-            },
-            [_vm._v("Thêm mới")]
-          ),
-          _vm._v(" "),
-          _c("table", { staticClass: "table table-bordered" }, [
-            _c("thead", [
-              _c("tr", [
-                _c("th", [_vm._v(" # ")]),
-                _vm._v(" "),
-                _c("th", [_vm._v(" Media ")]),
-                _vm._v(" "),
-                _c("th", [_vm._v(" Nội dung ")]),
-                _vm._v(" "),
-                _c("th", [_vm._v(" Kiểu ")]),
-                _vm._v(" "),
-                _c("th", [_vm._v(" Ngày tạo ")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tbody", [
-              _c("tr", [
-                _c("td", [_vm._v(" 1 ")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" Herman Beck ")]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("div", { staticClass: "progress" }, [
-                    _c("div", {
-                      staticClass: "progress-bar bg-success",
-                      staticStyle: { width: "25%" },
-                      attrs: {
-                        role: "progressbar",
-                        "aria-valuenow": "25",
-                        "aria-valuemin": "0",
-                        "aria-valuemax": "100"
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" $ 77.99 ")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" May 15, 2015 ")])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td", [_vm._v(" 2 ")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" Messsy Adam ")]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("div", { staticClass: "progress" }, [
-                    _c("div", {
-                      staticClass: "progress-bar bg-danger",
-                      staticStyle: { width: "75%" },
-                      attrs: {
-                        role: "progressbar",
-                        "aria-valuenow": "75",
-                        "aria-valuemin": "0",
-                        "aria-valuemax": "100"
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" $245.30 ")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" July 1, 2015 ")])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td", [_vm._v(" 3 ")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" John Richards ")]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("div", { staticClass: "progress" }, [
-                    _c("div", {
-                      staticClass: "progress-bar bg-warning",
-                      staticStyle: { width: "90%" },
-                      attrs: {
-                        role: "progressbar",
-                        "aria-valuenow": "90",
-                        "aria-valuemin": "0",
-                        "aria-valuemax": "100"
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" $138.00 ")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" Apr 12, 2015 ")])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td", [_vm._v(" 4 ")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" Peter Meggik ")]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("div", { staticClass: "progress" }, [
-                    _c("div", {
-                      staticClass: "progress-bar bg-primary",
-                      staticStyle: { width: "50%" },
-                      attrs: {
-                        role: "progressbar",
-                        "aria-valuenow": "50",
-                        "aria-valuemin": "0",
-                        "aria-valuemax": "100"
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" $ 77.99 ")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" May 15, 2015 ")])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td", [_vm._v(" 5 ")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" Edward ")]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("div", { staticClass: "progress" }, [
-                    _c("div", {
-                      staticClass: "progress-bar bg-danger",
-                      staticStyle: { width: "35%" },
-                      attrs: {
-                        role: "progressbar",
-                        "aria-valuenow": "35",
-                        "aria-valuemin": "0",
-                        "aria-valuemax": "100"
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" $ 160.25 ")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" May 03, 2015 ")])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td", [_vm._v(" 6 ")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" John Doe ")]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("div", { staticClass: "progress" }, [
-                    _c("div", {
-                      staticClass: "progress-bar bg-info",
-                      staticStyle: { width: "65%" },
-                      attrs: {
-                        role: "progressbar",
-                        "aria-valuenow": "65",
-                        "aria-valuemin": "0",
-                        "aria-valuemax": "100"
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" $ 123.21 ")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" April 05, 2015 ")])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td", [_vm._v(" 7 ")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" Henry Tom ")]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("div", { staticClass: "progress" }, [
-                    _c("div", {
-                      staticClass: "progress-bar bg-warning",
-                      staticStyle: { width: "20%" },
-                      attrs: {
-                        role: "progressbar",
-                        "aria-valuenow": "20",
-                        "aria-valuemin": "0",
-                        "aria-valuemax": "100"
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" $ 150.00 ")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" June 16, 2015 ")])
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1d055c35", { render: render, staticRenderFns: staticRenderFns })
-  }
-}
-
-/***/ }),
-
-/***/ 119:
+/***/ 101:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(120);
+var content = __webpack_require__(102);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -265,7 +28,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 120:
+/***/ 102:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(48)(false);
@@ -277,6 +40,248 @@ exports.push([module.i, "\n.btn-fw[data-v-1d055c35]\n{\n    margin-bottom: 15px;
 
 // exports
 
+
+/***/ }),
+
+/***/ 103:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col-lg-12 grid-margin stretch-card" }, [
+    _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-inverse-primary btn-fw",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                return _vm.$router.push({ name: "QuestionCreate" })
+              }
+            }
+          },
+          [_vm._v("Thêm mới")]
+        ),
+        _vm._v(" "),
+        _vm._m(0)
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("table", { staticClass: "table table-bordered" }, [
+      _c("thead", [
+        _c("tr", [
+          _c("th", [_vm._v(" # ")]),
+          _vm._v(" "),
+          _c("th", [_vm._v(" Media ")]),
+          _vm._v(" "),
+          _c("th", [_vm._v(" Nội dung ")]),
+          _vm._v(" "),
+          _c("th", [_vm._v(" Kiểu ")]),
+          _vm._v(" "),
+          _c("th", [_vm._v(" Ngày tạo ")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("tbody", [
+        _c("tr", [
+          _c("td", [_vm._v(" 1 ")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" Herman Beck ")]),
+          _vm._v(" "),
+          _c("td", [
+            _c("div", { staticClass: "progress" }, [
+              _c("div", {
+                staticClass: "progress-bar bg-success",
+                staticStyle: { width: "25%" },
+                attrs: {
+                  role: "progressbar",
+                  "aria-valuenow": "25",
+                  "aria-valuemin": "0",
+                  "aria-valuemax": "100"
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" $ 77.99 ")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" May 15, 2015 ")])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", [_vm._v(" 2 ")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" Messsy Adam ")]),
+          _vm._v(" "),
+          _c("td", [
+            _c("div", { staticClass: "progress" }, [
+              _c("div", {
+                staticClass: "progress-bar bg-danger",
+                staticStyle: { width: "75%" },
+                attrs: {
+                  role: "progressbar",
+                  "aria-valuenow": "75",
+                  "aria-valuemin": "0",
+                  "aria-valuemax": "100"
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" $245.30 ")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" July 1, 2015 ")])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", [_vm._v(" 3 ")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" John Richards ")]),
+          _vm._v(" "),
+          _c("td", [
+            _c("div", { staticClass: "progress" }, [
+              _c("div", {
+                staticClass: "progress-bar bg-warning",
+                staticStyle: { width: "90%" },
+                attrs: {
+                  role: "progressbar",
+                  "aria-valuenow": "90",
+                  "aria-valuemin": "0",
+                  "aria-valuemax": "100"
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" $138.00 ")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" Apr 12, 2015 ")])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", [_vm._v(" 4 ")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" Peter Meggik ")]),
+          _vm._v(" "),
+          _c("td", [
+            _c("div", { staticClass: "progress" }, [
+              _c("div", {
+                staticClass: "progress-bar bg-primary",
+                staticStyle: { width: "50%" },
+                attrs: {
+                  role: "progressbar",
+                  "aria-valuenow": "50",
+                  "aria-valuemin": "0",
+                  "aria-valuemax": "100"
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" $ 77.99 ")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" May 15, 2015 ")])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", [_vm._v(" 5 ")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" Edward ")]),
+          _vm._v(" "),
+          _c("td", [
+            _c("div", { staticClass: "progress" }, [
+              _c("div", {
+                staticClass: "progress-bar bg-danger",
+                staticStyle: { width: "35%" },
+                attrs: {
+                  role: "progressbar",
+                  "aria-valuenow": "35",
+                  "aria-valuemin": "0",
+                  "aria-valuemax": "100"
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" $ 160.25 ")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" May 03, 2015 ")])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", [_vm._v(" 6 ")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" John Doe ")]),
+          _vm._v(" "),
+          _c("td", [
+            _c("div", { staticClass: "progress" }, [
+              _c("div", {
+                staticClass: "progress-bar bg-info",
+                staticStyle: { width: "65%" },
+                attrs: {
+                  role: "progressbar",
+                  "aria-valuenow": "65",
+                  "aria-valuemin": "0",
+                  "aria-valuemax": "100"
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" $ 123.21 ")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" April 05, 2015 ")])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", [_vm._v(" 7 ")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" Henry Tom ")]),
+          _vm._v(" "),
+          _c("td", [
+            _c("div", { staticClass: "progress" }, [
+              _c("div", {
+                staticClass: "progress-bar bg-warning",
+                staticStyle: { width: "20%" },
+                attrs: {
+                  role: "progressbar",
+                  "aria-valuenow": "20",
+                  "aria-valuemin": "0",
+                  "aria-valuemax": "100"
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" $ 150.00 ")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" June 16, 2015 ")])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1d055c35", { render: render, staticRenderFns: staticRenderFns })
+  }
+}
 
 /***/ }),
 
@@ -375,7 +380,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var disposed = false
 function injectStyle (context) {
   if (disposed) return
-  __webpack_require__(119)
+  __webpack_require__(101)
 }
 /* script */
 

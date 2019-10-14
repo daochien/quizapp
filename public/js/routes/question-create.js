@@ -53,9 +53,273 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("This is question create")])
+  return _c("div", { staticClass: "col-lg-12 grid-margin stretch-card" }, [
+    _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("form", { staticClass: "form-sample" }, [
+          _c("h3", { staticClass: "card-title" }, [_vm._v("Câu hỏi")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group row" }, [
+            _c("label", { staticClass: "col-sm-2 col-form-label" }, [
+              _vm._v("Tiêu đề")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-8" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.question.title,
+                    expression: "question.title"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text" },
+                domProps: { value: _vm.question.title },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.question, "title", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group row" }, [
+            _c("label", { staticClass: "col-sm-2 col-form-label" }, [
+              _vm._v("Kiểu")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-2" }, [
+              _c("div", { staticClass: "form-radio" }, [
+                _c("label", { staticClass: "form-check-label" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.question.type,
+                        expression: "question.type"
+                      }
+                    ],
+                    staticClass: "form-check-input",
+                    attrs: {
+                      type: "radio",
+                      name: "type_question",
+                      value: "text"
+                    },
+                    domProps: { checked: _vm._q(_vm.question.type, "text") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.question, "type", "text")
+                      }
+                    }
+                  }),
+                  _vm._v(" Text\n                                "),
+                  _c("i", { staticClass: "input-helper" })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-2" }, [
+              _c("div", { staticClass: "form-radio" }, [
+                _c("label", { staticClass: "form-check-label" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.question.type,
+                        expression: "question.type"
+                      }
+                    ],
+                    staticClass: "form-check-input",
+                    attrs: {
+                      type: "radio",
+                      name: "type_question",
+                      value: "image"
+                    },
+                    domProps: { checked: _vm._q(_vm.question.type, "image") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.question, "type", "image")
+                      }
+                    }
+                  }),
+                  _vm._v(" Image\n                                "),
+                  _c("i", { staticClass: "input-helper" })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-2" }, [
+              _c("div", { staticClass: "form-radio" }, [
+                _c("label", { staticClass: "form-check-label" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.question.type,
+                        expression: "question.type"
+                      }
+                    ],
+                    staticClass: "form-check-input",
+                    attrs: {
+                      type: "radio",
+                      name: "type_question",
+                      value: "video"
+                    },
+                    domProps: { checked: _vm._q(_vm.question.type, "video") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.question, "type", "video")
+                      }
+                    }
+                  }),
+                  _vm._v(" Video\n                                "),
+                  _c("i", { staticClass: "input-helper" })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-2" }, [
+              _c("div", { staticClass: "form-radio" }, [
+                _c("label", { staticClass: "form-check-label" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.question.type,
+                        expression: "question.type"
+                      }
+                    ],
+                    staticClass: "form-check-input",
+                    attrs: {
+                      type: "radio",
+                      name: "type_question",
+                      value: "audio"
+                    },
+                    domProps: { checked: _vm._q(_vm.question.type, "audio") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.question, "type", "audio")
+                      }
+                    }
+                  }),
+                  _vm._v(" Audio\n                                "),
+                  _c("i", { staticClass: "input-helper" })
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group row" }, [
+            _c("label", { staticClass: "col-sm-2 col-form-label" }, [
+              _vm._v("Nội dung")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-8" }, [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.question.content,
+                    expression: "question.content"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { rows: "5" },
+                domProps: { value: _vm.question.content },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.question, "content", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group row" }, [
+            _c("label", { staticClass: "col-sm-2 col-form-label" }, [
+              _vm._v("File upload")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c("input", {
+                staticClass: "file-upload-default",
+                attrs: { type: "file", name: "img[]" }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group col-xs-12" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.question.media,
+                      expression: "question.media"
+                    }
+                  ],
+                  staticClass: "form-control file-upload-info",
+                  attrs: {
+                    type: "text",
+                    disabled: "",
+                    placeholder: "Upload File"
+                  },
+                  domProps: { value: _vm.question.media },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.question, "media", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm._m(0)
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("h3", { staticClass: "card-title" }, [_vm._v("Câu trả lời")]),
+          _vm._v(" "),
+          _vm._m(1)
+        ])
+      ])
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-append" }, [
+      _c("button", { staticClass: "file-upload-browse btn btn-info" }, [
+        _vm._v("Upload")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "list-answers" }, [
+      _c("div", { staticClass: "item-answer" })
+    ])
+  }
+]
 render._withStripped = true
 
 if (false) {
@@ -596,7 +860,92 @@ function listToStyles (parentId, list) {
 //
 //
 //
-/* harmony default export */ __webpack_exports__["a"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["a"] = ({
+  data: function data() {
+    return {
+      question: {
+        title: '',
+        content: '',
+        type: 'text',
+        media: ''
+      }
+    };
+  }
+});
 
 /***/ })
 
