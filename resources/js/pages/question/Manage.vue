@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-body">
 
-                <button type="button" class="btn btn-inverse-primary btn-fw">Thêm mới</button>
+                <button type="button" class="btn btn-inverse-primary btn-fw" @click="$router.push({name: 'QuestionCreate'})">Thêm mới</button>
 
                 <table class="table table-bordered">
                     <thead>
