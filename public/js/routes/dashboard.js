@@ -989,7 +989,7 @@ exports = module.exports = __webpack_require__(48)(false);
 
 
 // module
-exports.push([module.i, "\n.dropdown-item {\n  cursor: pointer;\n}\n", ""]);
+exports.push([module.i, "\n.dropdown-item {\r\n  cursor: pointer;\n}\r\n", ""]);
 
 // exports
 

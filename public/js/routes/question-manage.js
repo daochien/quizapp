@@ -36,7 +36,7 @@ exports = module.exports = __webpack_require__(48)(false);
 
 
 // module
-exports.push([module.i, "\n.btn-fw[data-v-1d055c35]\n{\n    margin-bottom: 15px;\n    float:right;\n}\n", ""]);
+exports.push([module.i, "\n.btn-fw[data-v-1d055c35]\r\n{\r\n    margin-bottom: 15px;\r\n    float:right;\n}\r\n", ""]);
 
 // exports
 

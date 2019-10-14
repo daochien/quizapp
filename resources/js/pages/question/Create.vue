@@ -64,10 +64,60 @@
                         </div>
                     </div>
                     <h3 class="card-title">Câu trả lời</h3>
-                    <div class="list-answers">
-                        <div class="item-answer">
-
+                    <div class="list-answers row" style="padding-left: 15px;">
+                        
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label>Đáp án 1</label>
+                            </div>
+                            <div class="form-group row">
+                                <select class="form-control">
+                                    <option>Text</option>
+                                    <option>Media</option>
+                                </select>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 row">
+                                    <input type="file" name="img[]" class="file-upload-default">
+                                    <div class="input-group col-xs-12">
+                                        <input type="text" class="form-control file-upload-info" disabled="" v-model="question.media" placeholder="Upload File">
+                                        <span class="input-group-append">
+                                            <button class="file-upload-browse btn btn-info">Upload</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <textarea class="form-control" placeholder="Đáp án..." rows="3"></textarea>
+                            </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Đáp án 1</label>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control">
+                                    <option>Text</option>
+                                    <option>Media</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12 row">
+                                    <input type="file" name="img[]" class="file-upload-default">
+                                    <div class="input-group col-xs-12">
+                                        <input type="text" class="form-control file-upload-info" disabled="" v-model="question.media" placeholder="Upload File">
+                                        <span class="input-group-append">
+                                            <button class="file-upload-browse btn btn-info">Upload</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Đáp án..." rows="3"></textarea>
+                            </div>
+                        </div>
+                        
+                        
                     </div>
 
                 </form>

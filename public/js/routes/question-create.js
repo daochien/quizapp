@@ -294,7 +294,108 @@ var render = function() {
           _vm._v(" "),
           _c("h3", { staticClass: "card-title" }, [_vm._v("Câu trả lời")]),
           _vm._v(" "),
-          _vm._m(1)
+          _c(
+            "div",
+            {
+              staticClass: "list-answers row",
+              staticStyle: { "padding-left": "15px" }
+            },
+            [
+              _c("div", { staticClass: "col-md-6" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _vm._m(2),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-sm-12 row" }, [
+                    _c("input", {
+                      staticClass: "file-upload-default",
+                      attrs: { type: "file", name: "img[]" }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "input-group col-xs-12" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.question.media,
+                            expression: "question.media"
+                          }
+                        ],
+                        staticClass: "form-control file-upload-info",
+                        attrs: {
+                          type: "text",
+                          disabled: "",
+                          placeholder: "Upload File"
+                        },
+                        domProps: { value: _vm.question.media },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.question, "media", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm._m(3)
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(4)
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6" }, [
+                _vm._m(5),
+                _vm._v(" "),
+                _vm._m(6),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("div", { staticClass: "col-sm-12 row" }, [
+                    _c("input", {
+                      staticClass: "file-upload-default",
+                      attrs: { type: "file", name: "img[]" }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "input-group col-xs-12" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.question.media,
+                            expression: "question.media"
+                          }
+                        ],
+                        staticClass: "form-control file-upload-info",
+                        attrs: {
+                          type: "text",
+                          disabled: "",
+                          placeholder: "Upload File"
+                        },
+                        domProps: { value: _vm.question.media },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.question, "media", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm._m(7)
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(8)
+              ])
+            ]
+          )
         ])
       ])
     ])
@@ -315,8 +416,82 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "list-answers" }, [
-      _c("div", { staticClass: "item-answer" })
+    return _c("div", { staticClass: "form-group row" }, [
+      _c("label", [_vm._v("Đáp án 1")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c("select", { staticClass: "form-control" }, [
+        _c("option", [_vm._v("Text")]),
+        _vm._v(" "),
+        _c("option", [_vm._v("Media")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-append" }, [
+      _c("button", { staticClass: "file-upload-browse btn btn-info" }, [
+        _vm._v("Upload")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: { placeholder: "Đáp án...", rows: "3" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [_vm._v("Đáp án 1")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("select", { staticClass: "form-control" }, [
+        _c("option", [_vm._v("Text")]),
+        _vm._v(" "),
+        _c("option", [_vm._v("Media")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-append" }, [
+      _c("button", { staticClass: "file-upload-browse btn btn-info" }, [
+        _vm._v("Upload")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: { placeholder: "Đáp án...", rows: "3" }
+      })
     ])
   }
 ]
@@ -857,6 +1032,56 @@ function listToStyles (parentId, list) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
