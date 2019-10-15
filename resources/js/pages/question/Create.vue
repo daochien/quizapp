@@ -58,75 +58,45 @@
                             <div class="input-group col-xs-12">
                                 <input type="text" class="form-control file-upload-info" disabled="" v-model="question.media" placeholder="Upload File">
                                 <span class="input-group-append">
-                                    <button class="file-upload-browse btn btn-info">Upload</button>
+                                    <button class="file-upload-browse btn btn-info" @click.prevent="show('file-manager')">Upload</button>
                                 </span>
                             </div>
                         </div>
                     </div>
-                    <h3 class="card-title">Câu trả lời</h3>
-                    <div class="list-answers row" style="padding-left: 15px;">
-                        
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label>Đáp án 1</label>
-                            </div>
-                            <div class="form-group row">
-                                <select class="form-control">
-                                    <option>Text</option>
-                                    <option>Media</option>
-                                </select>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-12 row">
-                                    <input type="file" name="img[]" class="file-upload-default">
-                                    <div class="input-group col-xs-12">
-                                        <input type="text" class="form-control file-upload-info" disabled="" v-model="question.media" placeholder="Upload File">
-                                        <span class="input-group-append">
-                                            <button class="file-upload-browse btn btn-info">Upload</button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <textarea class="form-control" placeholder="Đáp án..." rows="3"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Đáp án 1</label>
-                            </div>
-                            <div class="form-group">
-                                <select class="form-control">
-                                    <option>Text</option>
-                                    <option>Media</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12 row">
-                                    <input type="file" name="img[]" class="file-upload-default">
-                                    <div class="input-group col-xs-12">
-                                        <input type="text" class="form-control file-upload-info" disabled="" v-model="question.media" placeholder="Upload File">
-                                        <span class="input-group-append">
-                                            <button class="file-upload-browse btn btn-info">Upload</button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" placeholder="Đáp án..." rows="3"></textarea>
-                            </div>
-                        </div>
-                        
-                        
-                    </div>
+                    <hr>
+                    <h3 class="card-title">
+                        Câu trả lời
+                        <span class="toggle-show" @click="toggleShowAnswers()">
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="0.5" width="21" height="21" fill="white" stroke="#E0E0E0"></rect> <rect x="5" y="10" width="12" height="2" rx="1" fill="#BDBDBD"></rect></svg>
+                        </span>
+                    </h3>
 
+                    <div class="list-answers row" style="padding-left: 15px;" v-show="showAnswers">
+                        <item-question v-for="(item, index) in listAnswers" :key="index" :answer="item" :increments="index"></item-question>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <div class="col-sm-12 text-center">
+                            <button class="btn btn-success btn-fw">Tạo mới</button>
+                            <button class="btn btn-inverse-danger btn-fw">Hủy bỏ</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
+        <modal name="file-manager" :width="'50%'" :height="'auto'">
+            <file-manage></file-manage>
+        </modal>
     </div>
 </template>
 <script>
+const ItemQuestion = () => import('@/pages/question/ItemQuestion.vue');
+const FileManage = () => import('@/components/modal/FileManage.vue');
 export default {
+    components: {
+        ItemQuestion,
+        FileManage
+    },
     data() {
         return {
             question: {
@@ -134,11 +104,71 @@ export default {
                 content: '',
                 type: 'text',
                 media: ''
-            }
+            },
+            showAnswers: true,
+            listAnswers: [
+                {
+                    type: 'text',
+                    media: '',
+                    content: '',
+                    isTrue: false
+                },
+                {
+                    type: 'text',
+                    media: '',
+                    content: '',
+                    isTrue: false
+                },
+                {
+                    type: 'text',
+                    media: '',
+                    content: '',
+                    isTrue: false
+                },
+                {
+                    type: 'text',
+                    media: '',
+                    content: '',
+                    isTrue: false
+                }
+            ],
+            showPopup: false
         }
+    },
+    methods: {
+        toggleShowAnswers() {
+            this.showAnswers = !this.showAnswers;
+        },
+        show (title) {
+            this.$modal.show(title);
+        },
+        hide () {
+            this.$modal.hide(title);
+        }
+    },
+    created() {
+        let self = this;
+        this.$bus.on('add-answer', function(data) {
+            self.listAnswers.push(
+                {
+                    type: 'text',
+                    media: '',
+                    content: '',
+                    isTrue: false
+                },
+            );
+        });
+
+        this.$bus.on('remove-answer', function(index) {
+
+            self.listAnswers.splice(index, 1)
+        });
     }
 }
 </script>
 <style lang="scss" scoped>
-
+.toggle-show {
+    float: right;
+}
 </style>
+
