@@ -90,8 +90,8 @@
     </div>
 </template>
 <script>
-const ItemQuestion = () => import('@/pages/question/ItemQuestion.vue');
-const FileManage = () => import('@/components/modal/FileManage.vue');
+import ItemQuestion from '@/pages/question/ItemQuestion.vue';
+import FileManage from '@/components/modal/FileManage.vue';
 export default {
     components: {
         ItemQuestion,

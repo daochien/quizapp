@@ -22,3 +22,7 @@ Route::group([ 'prefix' => 'auth' ], function () {
         Route::get('user', 'AuthController@user');
     });
 });
+
+Route::group([ 'prefix' => 'media', 'middleware' => 'auth:api'], function() {
+    Route::post('upload', 'Api\MediaController@upload');
+});
