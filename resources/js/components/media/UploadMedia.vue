@@ -13,7 +13,7 @@
         </form>
         <div class="col-md-12">
             <div class="media-review row">
-                <div class="item-review col-md-6">
+                <div class="item-review col-md-12 text-center">
                     <img :src="media.preview" >
                 </div>
             </div>
@@ -75,7 +75,7 @@ export default {
     margin-bottom: 20px;
     .item-review {
         img {
-            width: 100%;
+            width: 50%;
         }
     }
 }

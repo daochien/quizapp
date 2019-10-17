@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Storage;
+use App\Models\Media;
+use Storage, Image, Validator;
 class MediaController extends Controller
 {
     private $image_ext = ['jpg', 'jpeg', 'png', 'gif'];
     private $audio_ext = ['mp3', 'ogg', 'mpga'];
     private $video_ext = ['mp4', 'mpeg'];
+    protected $_pathUpload = 'uploads/';
     /**
      * Upload media
      * @return response server upload media
@@ -21,18 +23,58 @@ class MediaController extends Controller
             $max_size = (int)ini_get('upload_max_filesize') * 1000;
             $all_ext = implode(',', $this->allExtensions());
 
-            $this->validate($request, [
+            $validator = Validator::make($request->all(), [
                 'file' => 'required|file|mimes:' . $all_ext . '|max:' . $max_size
             ]);
+
+            if ($validator->fails())
+            {
+                throw new \Exception($validator->errors()->first());
+            }
 
             $file = $request->file('file');
             $ext = $file->getClientOriginalExtension();
             $type = $this->getType($ext);
+            $pathUpload = $this->_pathUpload.$type.'/'.$request->user()->id;
+            $storage = $this->_upload($file, $pathUpload);
 
-            Storage::putFile(
-                'avatars', $file
-            );
-            dd('123');
+            if($storage)
+            {
+                if($type == 'image')
+                {
+                    $pathCover = $pathUpload.'/resize';
+                    $imageCover = $this->_resizeImage($file, $pathCover);
+
+                    if(!$imageCover)
+                    {
+                        $this->_remove($storage);
+                        return response()->json([
+                            'status' => false,
+                            'message' => 'Resize Image error'
+                        ]);
+                    }
+                }
+
+                Media::create([
+                    'name' => $file->hashName(),
+                    'path' => $storage,
+                    'extension' => $type,
+                    'path_cover' => !empty($imageCover) ? $pathCover.'/'.$file->hashName() : '',
+                    'user_id' => $request->user()->id
+                ]);
+
+                return response()->json([
+                    'status' => true,
+                    'message' => 'upload success'
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'upload media error'
+                ]);
+            }
         }
         catch(\Exception $e)
         {
@@ -73,5 +115,42 @@ class MediaController extends Controller
         {
             return 'video';
         }
+    }
+
+    /**
+     * Resize image
+     * @return path_cover
+    */
+    protected function _resizeImage($file , $pathUpload)
+    {
+        $resize_image = Image::make($file->getRealPath());
+        $resize_image->fit(250, 250, function($constraint) {
+            $constraint->aspectRatio();
+        });
+        $cover = Storage::disk('public_uploads')->put($pathUpload.'/'.$file->hashName(), (string) $resize_image->encode());
+        return $cover;
+    }
+
+    /**
+     * Upload media
+     * @return path
+    */
+    protected function _upload($file, $pathUpload)
+    {
+        $storage = Storage::disk('public_uploads')->putFile($pathUpload, $file);
+        return $storage;
+    }
+
+    /**
+     * Remove media
+     * @return boolean
+    */
+    public function _remove($path)
+    {
+        if(Storage::disk('public_uploads')->exists($path))
+        {
+            return Storage::disk('public_uploads')->delete($path);
+        }
+        return false;
     }
 }
