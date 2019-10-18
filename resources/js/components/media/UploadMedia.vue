@@ -5,16 +5,33 @@
                 <div class="input-group">
                     <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Media">
                     <span class="input-group-append">
-                        <input type="file" ref="file" @change="onImageChange" style="display: none">
+                        <input type="file" ref="file" id="files" @change="onImageChange" style="display: none;" multiple>
                         <button class="file-upload-browse btn btn-info" type="button" @click.prevent="$refs.file.click()">Chọn</button>
                     </span>
                 </div>
             </div>
         </form>
+
         <div class="col-md-12">
             <div class="media-review row">
-                <div class="item-review col-md-12 text-center">
-                    <img :src="media.preview" >
+                <div class="item-review col-md-12">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr v-for="(item, index) in media.files" :key="index">
+                                <td style="width: 10%">
+                                    {{ index + 1 }}
+                                </td>
+                                <td > {{ item.name | limitString }} </td>
+                                <td style="width: 10%"> {{ Math.ceil(item.size / (1024 * 1024)) }}mb </td>
+                                <td style="width: 30%">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td style="width: 10%"><i class="fa fa-trash-o" @click="removeMedia(index)"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -25,14 +42,16 @@
 </template>
 <script>
 import { upload } from '@/apis/media.js';
+
 export default {
+
     data() {
         return {
             media: {
-                file: '',
-                preview: '',
+                files: [],
                 extentions: ''
             },
+            data: new FormData(),
         }
     },
     methods: {
@@ -41,32 +60,45 @@ export default {
                 let files = e.target.files || e.dataTransfer.files;
                 if (!files.length)
                     return;
-                this.media.file = files[0];
-                this.createMedia(files[0]);
+
+                for (var i = files.length - 1; i >= 0; i--) {
+                    this.media.files.push(files[i]);
+                }
+
+                document.getElementById("files").value = [];
             } catch(error) {
                 console.log(error);
             }
         },
 
-        createMedia(file) {
-            let reader = new FileReader();
-            let vm = this;
-            reader.onload = (e) => {
-                // vm.media.file = e.target.result;
-            };
-            reader.readAsDataURL(file);
-            this.media.preview = URL.createObjectURL(file);
-        },
         async uploadMedia() {
             try {
-                let formData = new FormData();
-                formData.append('file', this.media.file);
-                let data = await upload(formData);
-                console.log(data);
+                this.prepareFields();
+                let data = await upload(this.data);
             } catch(error) {
                 console.log(error);
             }
-        }
+        },
+
+        prepareFields() {
+            if (this.media.files.length > 0) {
+                for (var i = 0; i < this.media.files.length; i++) {
+                    let attachment = this.media.files[i];
+                    this.data.append('files[]', attachment);
+                }
+            }
+        },
+
+        removeMedia(index) {
+            this.data = new FormData();
+            this.media.files.splice(index, 1);
+        },
+
+        resetData() {
+            this.data = new FormData(); // Reset it completely
+            this.media.files = [];
+        },
+
     }
 }
 </script>
@@ -78,5 +110,10 @@ export default {
             width: 50%;
         }
     }
+    i {
+        font-size: 16px;
+        cursor: pointer;
+    }
 }
 </style>
+

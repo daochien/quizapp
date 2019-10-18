@@ -3,6 +3,7 @@ import router from '@/routes/index.js';
 import store from '@/store/index.js';
 import Bus from '@/utils/bus';
 import VModal from 'vue-js-modal'
+import filters from '@/utils/filters';
 
 Vue.use(Bus);
 Vue.use(VModal);

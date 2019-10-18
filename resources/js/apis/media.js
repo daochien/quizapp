@@ -7,7 +7,7 @@ export function upload(data) {
             data: data,
             header: {
                 'Content-Type': 'multipart/form-data'
-            }
+            },
         })
         .then((response) => {
             if (response.status) {

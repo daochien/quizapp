@@ -20,11 +20,12 @@ class MediaController extends Controller
     {
         try
         {
+
             $max_size = (int)ini_get('upload_max_filesize') * 1000;
             $all_ext = implode(',', $this->allExtensions());
 
             $validator = Validator::make($request->all(), [
-                'file' => 'required|file|mimes:' . $all_ext . '|max:' . $max_size
+                'files' => 'required'
             ]);
 
             if ($validator->fails())
@@ -32,49 +33,41 @@ class MediaController extends Controller
                 throw new \Exception($validator->errors()->first());
             }
 
-            $file = $request->file('file');
-            $ext = $file->getClientOriginalExtension();
-            $type = $this->getType($ext);
-            $pathUpload = $this->_pathUpload.$type.'/'.$request->user()->id;
-            $storage = $this->_upload($file, $pathUpload);
-
-            if($storage)
+            $files = $request->file('files');
+            foreach($files as $file)
             {
-                if($type == 'image')
+                $ext = $file->getClientOriginalExtension();
+                $type = $this->getType($ext);
+                $pathUpload = $this->_pathUpload.$type.'/'.$request->user()->id;
+                $storage = $this->_upload($file, $pathUpload);
+
+                if($storage)
                 {
-                    $pathCover = $pathUpload.'/resize';
-                    $imageCover = $this->_resizeImage($file, $pathCover);
-
-                    if(!$imageCover)
+                    if($type == 'image')
                     {
-                        $this->_remove($storage);
-                        return response()->json([
-                            'status' => false,
-                            'message' => 'Resize Image error'
-                        ]);
+                        $pathCover = $pathUpload.'/resize';
+                        $imageCover = $this->_resizeImage($file, $pathCover);
+
+                        if(!$imageCover)
+                        {
+                            $this->_remove($storage);
+                        }
                     }
+
+                    Media::create([
+                        'name' => $file->hashName(),
+                        'path' => $storage,
+                        'extension' => $type,
+                        'path_cover' => !empty($imageCover) ? $pathCover.'/'.$file->hashName() : '',
+                        'user_id' => $request->user()->id
+                    ]);
                 }
-
-                Media::create([
-                    'name' => $file->hashName(),
-                    'path' => $storage,
-                    'extension' => $type,
-                    'path_cover' => !empty($imageCover) ? $pathCover.'/'.$file->hashName() : '',
-                    'user_id' => $request->user()->id
-                ]);
-
-                return response()->json([
-                    'status' => true,
-                    'message' => 'upload success'
-                ]);
             }
-            else
-            {
-                return response()->json([
-                    'status' => false,
-                    'message' => 'upload media error'
-                ]);
-            }
+
+            return response()->json([
+                'status' => true,
+                'message' => 'upload success'
+            ]);
         }
         catch(\Exception $e)
         {

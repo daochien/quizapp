@@ -8,7 +8,9 @@
             <button type="button" class="btn btn-inverse-info btn-fw" @click="changeFolder('ListAudio')">Audio</button>
         </div>
         <div class="list-media">
-            <component :is="showComponent"></component>
+            <keep-alive>
+                <component :is="showComponent"></component>
+            </keep-alive>
         </div>
     </div>
 </template>
