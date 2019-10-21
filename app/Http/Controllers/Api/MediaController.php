@@ -53,19 +53,21 @@ class MediaController extends Controller
                     }
                 }
 
-                Media::create([
+                $media = Media::create([
                     'name' => $file->hashName(),
-                    'path' => $storage,
+                    'path' => '/'.$storage,
                     'extension' => $type,
-                    'path_cover' => !empty($imageCover) ? $pathCover.'/'.$file->hashName() : '',
+                    'path_cover' => !empty($imageCover) ? '/'.$pathCover.'/'.$file->hashName() : '',
                     'user_id' => 6
+                ]);
+
+                return response()->json([
+                    'status' => true,
+                    'message' => 'upload success',
+                    'data' => $media
                 ]);
             }
 
-            return response()->json([
-                'status' => true,
-                'message' => 'upload success'
-            ]);
         }
         catch(\Exception $e)
         {

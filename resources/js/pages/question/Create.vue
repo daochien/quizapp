@@ -84,7 +84,7 @@
                 </form>
             </div>
         </div>
-        <modal name="file-manager" :width="'50%'" :height="'auto'">
+        <modal name="file-manager" :width="'50%'" :height="600" >
             <file-manage></file-manage>
         </modal>
     </div>
@@ -169,6 +169,9 @@ export default {
 <style lang="scss" scoped>
 .toggle-show {
     float: right;
+}
+.file-manager {
+
 }
 </style>
 

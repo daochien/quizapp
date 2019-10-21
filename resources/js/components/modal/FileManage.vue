@@ -42,6 +42,8 @@ export default {
 .file-manager-component {
     padding: 20px 10px;
     min-height: 500px;
+    height: 100%;
+    overflow-y:scroll;
     .list-media {
         margin-top: 20px;
     }

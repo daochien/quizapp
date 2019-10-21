@@ -496,7 +496,7 @@ exports = module.exports = __webpack_require__(51)(false);
 
 
 // module
-exports.push([module.i, "\n.file-manager-component[data-v-ab4ca070]{padding:20px 10px;min-height:500px\n}\n.file-manager-component .list-media[data-v-ab4ca070]{margin-top:20px\n}\n", ""]);
+exports.push([module.i, "\n.file-manager-component[data-v-ab4ca070]{padding:20px 10px;min-height:500px;height:100%;overflow-y:scroll\n}\n.file-manager-component .list-media[data-v-ab4ca070]{margin-top:20px\n}\n", ""]);
 
 // exports
 
@@ -831,7 +831,7 @@ exports = module.exports = __webpack_require__(51)(false);
 
 
 // module
-exports.push([module.i, "\n.media-review[data-v-6be3fce3]{margin-bottom:20px\n}\n.media-review .item-review img[data-v-6be3fce3]{width:50%\n}\n.media-review i[data-v-6be3fce3]{font-size:16px;cursor:pointer\n}\n", ""]);
+exports.push([module.i, "\n.media-review[data-v-6be3fce3]{margin-bottom:20px\n}\n.media-review .item-review img[data-v-6be3fce3]{width:50%\n}\n.media-review i[data-v-6be3fce3]{font-size:16px;cursor:pointer\n}\n.list-media-upload-success[data-v-6be3fce3]{margin-top:20px\n}\n.list-media-upload-success .stretch-card[data-v-6be3fce3]{position:relative\n}\n.list-media-upload-success .stretch-card .remove-media[data-v-6be3fce3]{position:absolute;right:8px;top:-12px;cursor:pointer\n}\n.list-media-upload-success .info-media[data-v-6be3fce3]{padding:10px\n}\n.alert-danger[data-v-6be3fce3]{font-size:12px\n}\n", ""]);
 
 // exports
 
@@ -846,27 +846,14 @@ exports.push([module.i, "\n.media-review[data-v-6be3fce3]{margin-bottom:20px\n}\
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_request__ = __webpack_require__(17);
 
 function upload(data, progress) {
-  return new Promise(function (resolve, reject) {
-    return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-      url: '/media/upload',
-      method: 'post',
-      data: data,
-      header: {
-        'Content-Type': 'multipart/form-data'
-      },
-      onUploadProgress: progress
-    }).then(function (response) {
-      if (response.status) {
-        resolve(response.data);
-      } else {
-        reject({
-          errors: response.errors,
-          message: response.message
-        });
-      }
-    })["catch"](function (error) {
-      reject(error);
-    });
+  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
+    url: '/media/upload',
+    method: 'post',
+    data: data,
+    header: {
+      'Content-Type': 'multipart/form-data'
+    },
+    onUploadProgress: progress
   });
 }
 
@@ -918,6 +905,23 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "col-md-12" },
+      _vm._l(_vm.errors, function(item, index) {
+        return _c(
+          "div",
+          {
+            key: index,
+            staticClass: "alert alert-danger",
+            attrs: { "data-v-1e41be0b": "", role: "alert" }
+          },
+          [_vm._v("\n            " + _vm._s(item.message) + "\n        ")]
+        )
+      }),
+      0
+    ),
+    _vm._v(" "),
     _c("div", { staticClass: "col-md-12" }, [
       _c("div", { staticClass: "media-review row" }, [
         _c("div", { staticClass: "item-review col-md-12" }, [
@@ -949,7 +953,11 @@ var render = function() {
                   _c("td", { staticStyle: { width: "30%" } }, [
                     _c("div", { staticClass: "progress" }, [
                       _c("div", {
-                        staticClass: "progress-bar bg-success",
+                        staticClass: "progress-bar",
+                        class: {
+                          "bg-success": item.success,
+                          "bg-danger": !item.success
+                        },
                         style: { width: item.percent + "%" },
                         attrs: {
                           role: "progressbar",
@@ -994,10 +1002,118 @@ var render = function() {
         },
         [_vm._v("Upload")]
       )
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "col-md-12 row list-media-upload-success" },
+      _vm._l(_vm.uploadSuccess, function(item, index) {
+        return _c(
+          "div",
+          { key: index, staticClass: "col-md-6 grid-margin stretch-card" },
+          [
+            item.extension === "image"
+              ? _c("div", { staticClass: "media-upload-image" }, [
+                  _c("div", { staticClass: "card" }, [
+                    _c("img", {
+                      staticClass: "card-img-top",
+                      attrs: { src: item.path_cover, alt: "card images" }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-body pb-0 info-media" }, [
+                      _c("p", { staticClass: "text-muted" }, [
+                        _vm._v(_vm._s(_vm._f("limitString")(item.name)))
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "d-flex align-items-center justify-content-between text-muted border-top py-3 mt-3"
+                        },
+                        [
+                          _c("p", { staticClass: "mb-0" }, [
+                            _vm._v(_vm._s(item.created_at))
+                          ])
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(0, true)
+                ])
+              : item.extension === "video"
+              ? _c("div", { staticClass: "media-upload-image" }, [
+                  _c("div", { staticClass: "card" }, [
+                    _c(
+                      "video",
+                      {
+                        staticClass: "card-img-top",
+                        attrs: {
+                          alt: "card images",
+                          controls: "",
+                          height: "150"
+                        }
+                      },
+                      [
+                        _c("source", {
+                          attrs: { src: item.path, type: "video/mp4" }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-body pb-0 info-media" }, [
+                      _c("p", { staticClass: "text-muted" }, [
+                        _vm._v(_vm._s(_vm._f("limitString")(item.name)))
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "d-flex align-items-center justify-content-between text-muted border-top py-3 mt-3"
+                        },
+                        [
+                          _c("p", { staticClass: "mb-0" }, [
+                            _vm._v(_vm._s(item.created_at))
+                          ])
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(1, true)
+                ])
+              : _vm._e()
+          ]
+        )
+      }),
+      0
+    )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "remove-media" }, [
+      _c("img", {
+        attrs: { src: "/icons/cancel.png", width: "16", height: "16" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "remove-media" }, [
+      _c("img", {
+        attrs: { src: "/icons/cancel.png", width: "16", height: "16" }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 if (false) {
@@ -1450,7 +1566,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "modal",
-        { attrs: { name: "file-manager", width: "50%", height: "auto" } },
+        { attrs: { name: "file-manager", width: "50%", height: 600 } },
         [_c("file-manage")],
         1
       )
@@ -2356,7 +2472,7 @@ function listToStyles (parentId, list) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__apis_media_js__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 
 
@@ -2364,6 +2480,45 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2418,7 +2573,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         files: [],
         extentions: ''
       },
-      listInfo: []
+      listInfo: [],
+      uploadSuccess: [],
+      errors: []
     };
   },
   methods: {
@@ -2453,17 +2610,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.prev = 0;
-
                 if (!(this.media.files.length > 0)) {
-                  _context2.next = 3;
+                  _context2.next = 2;
                   break;
                 }
 
                 return _context2.delegateYield(
                 /*#__PURE__*/
                 __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee() {
-                  var self, i, attachment, data, result;
+                  var self, i, attachment, data;
                   return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
                     while (1) {
                       switch (_context.prev = _context.next) {
@@ -2474,7 +2629,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                         case 3:
                           if (!(i < _this.media.files.length)) {
-                            _context.next = 13;
+                            _context.next = 12;
                             break;
                           }
 
@@ -2484,42 +2639,40 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           _context.next = 9;
                           return Object(__WEBPACK_IMPORTED_MODULE_1__apis_media_js__["a" /* upload */])(data, function (uploadEvent) {
                             self.listInfo[i].percent = Math.round(uploadEvent.loaded / uploadEvent.total * 100);
+                          }).then(function (response) {
+                            if (response.status) {
+                              _this.listInfo[i].success = true;
+
+                              _this.uploadSuccess.push(response.data);
+                            } else {
+                              _this.errors.push(response);
+                            }
+                          })["catch"](function (error) {
+                            _this.errors.push(error);
                           });
 
                         case 9:
-                          result = _context.sent;
-
-                        case 10:
                           i++;
                           _context.next = 3;
                           break;
 
-                        case 13:
+                        case 12:
                           _this.media.files = [];
 
-                        case 14:
+                        case 13:
                         case "end":
                           return _context.stop();
                       }
                     }
                   }, _callee);
-                })(), "t0", 3);
+                })(), "t0", 2);
 
-              case 3:
-                _context2.next = 8;
-                break;
-
-              case 5:
-                _context2.prev = 5;
-                _context2.t1 = _context2["catch"](0);
-                console.log(_context2.t1);
-
-              case 8:
+              case 2:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[0, 5]]);
+        }, _callee2, this);
       }));
 
       function uploadMedia() {
@@ -2535,6 +2688,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     resetData: function resetData() {
       this.listInfo = [];
       this.media.files = [];
+      this.errors = [];
     }
   }
 });
