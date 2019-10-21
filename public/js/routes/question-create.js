@@ -1,16 +1,16 @@
 webpackJsonp([1],{
 
-/***/ 110:
+/***/ 111:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(111);
+var content = __webpack_require__(112);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var add = __webpack_require__(64).default
+var add = __webpack_require__(65).default
 var update = add("a27b5fb6", content, false, {});
 // Hot Module Replacement
 if(false) {
@@ -28,10 +28,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 111:
+/***/ 112:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(50)(false);
+exports = module.exports = __webpack_require__(51)(false);
 // imports
 
 
@@ -43,18 +43,18 @@ exports.push([module.i, "\n.toggle-show[data-v-4c128768]{float:right\n}\n", ""])
 
 /***/ }),
 
-/***/ 112:
+/***/ 113:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_babel_preset_env_modules_false_targets_browsers_2_forceAllTransforms_true_plugins_babel_plugin_proposal_object_rest_spread_babel_plugin_transform_runtime_helpers_false_syntax_dynamic_import_node_modules_vue_loader_lib_selector_type_script_index_0_ItemQuestion_vue__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_babel_preset_env_modules_false_targets_browsers_2_forceAllTransforms_true_plugins_babel_plugin_proposal_object_rest_spread_babel_plugin_transform_runtime_helpers_false_syntax_dynamic_import_node_modules_vue_loader_lib_selector_type_script_index_0_ItemQuestion_vue__ = __webpack_require__(76);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2bdbb2e9_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ItemQuestion_vue__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2bdbb2e9_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ItemQuestion_vue__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(64);
 var disposed = false
 function injectStyle (context) {
   if (disposed) return
-  __webpack_require__(113)
+  __webpack_require__(114)
 }
 /* script */
 
@@ -102,17 +102,17 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 113:
+/***/ 114:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(114);
+var content = __webpack_require__(115);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var add = __webpack_require__(64).default
+var add = __webpack_require__(65).default
 var update = add("39bda7b4", content, false, {});
 // Hot Module Replacement
 if(false) {
@@ -130,10 +130,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 114:
+/***/ 115:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(50)(false);
+exports = module.exports = __webpack_require__(51)(false);
 // imports
 
 
@@ -145,7 +145,7 @@ exports.push([module.i, "\n.item-answer .remove-item-answer[data-v-2bdbb2e9]{flo
 
 /***/ }),
 
-/***/ 115:
+/***/ 116:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -401,18 +401,18 @@ if (false) {
 
 /***/ }),
 
-/***/ 116:
+/***/ 117:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_babel_preset_env_modules_false_targets_browsers_2_forceAllTransforms_true_plugins_babel_plugin_proposal_object_rest_spread_babel_plugin_transform_runtime_helpers_false_syntax_dynamic_import_node_modules_vue_loader_lib_selector_type_script_index_0_FileManage_vue__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_babel_preset_env_modules_false_targets_browsers_2_forceAllTransforms_true_plugins_babel_plugin_proposal_object_rest_spread_babel_plugin_transform_runtime_helpers_false_syntax_dynamic_import_node_modules_vue_loader_lib_selector_type_script_index_0_FileManage_vue__ = __webpack_require__(77);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_ab4ca070_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_FileManage_vue__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(64);
 var disposed = false
 function injectStyle (context) {
   if (disposed) return
-  __webpack_require__(117)
+  __webpack_require__(118)
 }
 /* script */
 
@@ -460,17 +460,17 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 117:
+/***/ 118:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(118);
+var content = __webpack_require__(119);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var add = __webpack_require__(64).default
+var add = __webpack_require__(65).default
 var update = add("5297cb6e", content, false, {});
 // Hot Module Replacement
 if(false) {
@@ -488,10 +488,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 118:
+/***/ 119:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(50)(false);
+exports = module.exports = __webpack_require__(51)(false);
 // imports
 
 
@@ -503,18 +503,18 @@ exports.push([module.i, "\n.file-manager-component[data-v-ab4ca070]{padding:20px
 
 /***/ }),
 
-/***/ 119:
+/***/ 120:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_babel_preset_env_modules_false_targets_browsers_2_forceAllTransforms_true_plugins_babel_plugin_proposal_object_rest_spread_babel_plugin_transform_runtime_helpers_false_syntax_dynamic_import_node_modules_vue_loader_lib_selector_type_script_index_0_ListImage_vue__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_babel_preset_env_modules_false_targets_browsers_2_forceAllTransforms_true_plugins_babel_plugin_proposal_object_rest_spread_babel_plugin_transform_runtime_helpers_false_syntax_dynamic_import_node_modules_vue_loader_lib_selector_type_script_index_0_ListImage_vue__ = __webpack_require__(78);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_98964a46_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ListImage_vue__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_98964a46_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ListImage_vue__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(64);
 var disposed = false
 function injectStyle (context) {
   if (disposed) return
-  __webpack_require__(120)
+  __webpack_require__(121)
 }
 /* script */
 
@@ -562,17 +562,17 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 120:
+/***/ 121:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(121);
+var content = __webpack_require__(122);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var add = __webpack_require__(64).default
+var add = __webpack_require__(65).default
 var update = add("5cb03dfb", content, false, {});
 // Hot Module Replacement
 if(false) {
@@ -590,10 +590,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 121:
+/***/ 122:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(50)(false);
+exports = module.exports = __webpack_require__(51)(false);
 // imports
 
 
@@ -605,7 +605,7 @@ exports.push([module.i, "\n.image-media .stretch-card[data-v-98964a46]{position:
 
 /***/ }),
 
-/***/ 122:
+/***/ 123:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -736,18 +736,18 @@ if (false) {
 
 /***/ }),
 
-/***/ 123:
+/***/ 124:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_babel_preset_env_modules_false_targets_browsers_2_forceAllTransforms_true_plugins_babel_plugin_proposal_object_rest_spread_babel_plugin_transform_runtime_helpers_false_syntax_dynamic_import_node_modules_vue_loader_lib_selector_type_script_index_0_UploadMedia_vue__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_babel_preset_env_modules_false_targets_browsers_2_forceAllTransforms_true_plugins_babel_plugin_proposal_object_rest_spread_babel_plugin_transform_runtime_helpers_false_syntax_dynamic_import_node_modules_vue_loader_lib_selector_type_script_index_0_UploadMedia_vue__ = __webpack_require__(79);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6be3fce3_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_UploadMedia_vue__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(64);
 var disposed = false
 function injectStyle (context) {
   if (disposed) return
-  __webpack_require__(124)
+  __webpack_require__(125)
 }
 /* script */
 
@@ -795,17 +795,17 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 124:
+/***/ 125:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(125);
+var content = __webpack_require__(126);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var add = __webpack_require__(64).default
+var add = __webpack_require__(65).default
 var update = add("6796ee21", content, false, {});
 // Hot Module Replacement
 if(false) {
@@ -823,10 +823,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 125:
+/***/ 126:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(50)(false);
+exports = module.exports = __webpack_require__(51)(false);
 // imports
 
 
@@ -845,7 +845,7 @@ exports.push([module.i, "\n.media-review[data-v-6be3fce3]{margin-bottom:20px\n}\
 /* harmony export (immutable) */ __webpack_exports__["a"] = upload;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_request__ = __webpack_require__(17);
 
-function upload(data) {
+function upload(data, progress) {
   return new Promise(function (resolve, reject) {
     return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
       url: '/media/upload',
@@ -853,7 +853,8 @@ function upload(data) {
       data: data,
       header: {
         'Content-Type': 'multipart/form-data'
-      }
+      },
+      onUploadProgress: progress
     }).then(function (response) {
       if (response.status) {
         resolve(response.data);
@@ -923,7 +924,7 @@ var render = function() {
           _c("table", { staticClass: "table table-striped" }, [
             _c(
               "tbody",
-              _vm._l(_vm.media.files, function(item, index) {
+              _vm._l(_vm.listInfo, function(item, index) {
                 return _c("tr", { key: index }, [
                   _c("td", { staticStyle: { width: "10%" } }, [
                     _vm._v(
@@ -939,11 +940,26 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", { staticStyle: { width: "10%" } }, [
                     _vm._v(
-                      " " + _vm._s(Math.ceil(item.size / (1024 * 1024))) + "mb "
+                      " " +
+                        _vm._s(Math.ceil(item.size / (1024 * 1024))) +
+                        " mb "
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(0, true),
+                  _c("td", { staticStyle: { width: "30%" } }, [
+                    _c("div", { staticClass: "progress" }, [
+                      _c("div", {
+                        staticClass: "progress-bar bg-success",
+                        style: { width: item.percent + "%" },
+                        attrs: {
+                          role: "progressbar",
+                          "aria-valuenow": "10",
+                          "aria-valuemin": "0",
+                          "aria-valuemax": "100"
+                        }
+                      })
+                    ])
+                  ]),
                   _vm._v(" "),
                   _c("td", { staticStyle: { width: "10%" } }, [
                     _c("i", {
@@ -981,27 +997,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticStyle: { width: "30%" } }, [
-      _c("div", { staticClass: "progress" }, [
-        _c("div", {
-          staticClass: "progress-bar bg-success",
-          staticStyle: { width: "25%" },
-          attrs: {
-            role: "progressbar",
-            "aria-valuenow": "25",
-            "aria-valuemin": "0",
-            "aria-valuemax": "100"
-          }
-        })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 if (false) {
@@ -1491,7 +1487,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 50:
+/***/ 51:
 /***/ (function(module, exports) {
 
 /*
@@ -1574,19 +1570,19 @@ function toComment(sourceMap) {
 
 /***/ }),
 
-/***/ 58:
+/***/ 59:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_babel_preset_env_modules_false_targets_browsers_2_forceAllTransforms_true_plugins_babel_plugin_proposal_object_rest_spread_babel_plugin_transform_runtime_helpers_false_syntax_dynamic_import_node_modules_vue_loader_lib_selector_type_script_index_0_Create_vue__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_babel_preset_env_modules_false_targets_browsers_2_forceAllTransforms_true_plugins_babel_plugin_proposal_object_rest_spread_babel_plugin_transform_runtime_helpers_false_syntax_dynamic_import_node_modules_vue_loader_lib_selector_type_script_index_0_Create_vue__ = __webpack_require__(75);
 /* empty harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4c128768_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Create_vue__ = __webpack_require__(130);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(64);
 var disposed = false
 function injectStyle (context) {
   if (disposed) return
-  __webpack_require__(110)
+  __webpack_require__(111)
 }
 /* script */
 
@@ -1634,7 +1630,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 63:
+/***/ 64:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1744,13 +1740,13 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 64:
+/***/ 65:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (immutable) */ __webpack_exports__["default"] = addStylesClient;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__listToStyles__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__listToStyles__ = __webpack_require__(66);
 /*
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
@@ -1977,7 +1973,7 @@ function applyToTag (styleElement, obj) {
 
 /***/ }),
 
-/***/ 65:
+/***/ 66:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2013,12 +2009,12 @@ function listToStyles (parentId, list) {
 
 /***/ }),
 
-/***/ 74:
+/***/ 75:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_question_ItemQuestion_vue__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_modal_FileManage_vue__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_question_ItemQuestion_vue__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_modal_FileManage_vue__ = __webpack_require__(117);
 //
 //
 //
@@ -2179,7 +2175,7 @@ function listToStyles (parentId, list) {
 
 /***/ }),
 
-/***/ 75:
+/***/ 76:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2245,12 +2241,12 @@ function listToStyles (parentId, list) {
 
 /***/ }),
 
-/***/ 76:
+/***/ 77:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_media_ListImage_vue__ = __webpack_require__(119);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_media_UploadMedia_vue__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_media_ListImage_vue__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_media_UploadMedia_vue__ = __webpack_require__(124);
 //
 //
 //
@@ -2292,7 +2288,7 @@ function listToStyles (parentId, list) {
 
 /***/ }),
 
-/***/ 77:
+/***/ 78:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2353,13 +2349,15 @@ function listToStyles (parentId, list) {
 
 /***/ }),
 
-/***/ 78:
+/***/ 79:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__apis_media_js__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2408,6 +2406,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   data: function data() {
@@ -2416,17 +2418,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         files: [],
         extentions: ''
       },
-      data: new FormData()
+      listInfo: []
     };
   },
   methods: {
     onImageChange: function onImageChange(e) {
       try {
         var files = e.target.files || e.dataTransfer.files;
+        this.resetData();
         if (!files.length) return;
 
         for (var i = files.length - 1; i >= 0; i--) {
           this.media.files.push(files[i]);
+          this.listInfo.push({
+            name: files[i].name,
+            size: files[i].size,
+            type: files[i].type,
+            percent: 0
+          });
         }
 
         document.getElementById("files").value = [];
@@ -2437,33 +2446,80 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     uploadMedia: function () {
       var _uploadMedia = _asyncToGenerator(
       /*#__PURE__*/
-      __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee() {
-        var data;
-        return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.prev = 0;
-                this.prepareFields();
-                _context.next = 4;
-                return Object(__WEBPACK_IMPORTED_MODULE_1__apis_media_js__["a" /* upload */])(this.data);
+      __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee2() {
+        var _this = this;
 
-              case 4:
-                data = _context.sent;
-                _context.next = 10;
+        return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+
+                if (!(this.media.files.length > 0)) {
+                  _context2.next = 3;
+                  break;
+                }
+
+                return _context2.delegateYield(
+                /*#__PURE__*/
+                __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee() {
+                  var self, i, attachment, data, result;
+                  return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                      switch (_context.prev = _context.next) {
+                        case 0:
+                          self = _this;
+                          i = 0;
+                          i;
+
+                        case 3:
+                          if (!(i < _this.media.files.length)) {
+                            _context.next = 13;
+                            break;
+                          }
+
+                          attachment = _this.media.files[i];
+                          data = new FormData();
+                          data.append('file', attachment);
+                          _context.next = 9;
+                          return Object(__WEBPACK_IMPORTED_MODULE_1__apis_media_js__["a" /* upload */])(data, function (uploadEvent) {
+                            self.listInfo[i].percent = Math.round(uploadEvent.loaded / uploadEvent.total * 100);
+                          });
+
+                        case 9:
+                          result = _context.sent;
+
+                        case 10:
+                          i++;
+                          _context.next = 3;
+                          break;
+
+                        case 13:
+                          _this.media.files = [];
+
+                        case 14:
+                        case "end":
+                          return _context.stop();
+                      }
+                    }
+                  }, _callee);
+                })(), "t0", 3);
+
+              case 3:
+                _context2.next = 8;
                 break;
 
-              case 7:
-                _context.prev = 7;
-                _context.t0 = _context["catch"](0);
-                console.log(_context.t0);
+              case 5:
+                _context2.prev = 5;
+                _context2.t1 = _context2["catch"](0);
+                console.log(_context2.t1);
 
-              case 10:
+              case 8:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, this, [[0, 7]]);
+        }, _callee2, this, [[0, 5]]);
       }));
 
       function uploadMedia() {
@@ -2472,21 +2528,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return uploadMedia;
     }(),
-    prepareFields: function prepareFields() {
-      if (this.media.files.length > 0) {
-        for (var i = 0; i < this.media.files.length; i++) {
-          var attachment = this.media.files[i];
-          this.data.append('files[]', attachment);
-        }
-      }
-    },
     removeMedia: function removeMedia(index) {
-      this.data = new FormData();
       this.media.files.splice(index, 1);
+      this.listInfo.splice(index, 1);
     },
     resetData: function resetData() {
-      this.data = new FormData(); // Reset it completely
-
+      this.listInfo = [];
       this.media.files = [];
     }
   }

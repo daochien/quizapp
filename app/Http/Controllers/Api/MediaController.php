@@ -25,7 +25,7 @@ class MediaController extends Controller
             $all_ext = implode(',', $this->allExtensions());
 
             $validator = Validator::make($request->all(), [
-                'files' => 'required'
+                'file' => 'required|file|mimes:' . $all_ext . '|max:' . $max_size
             ]);
 
             if ($validator->fails())
@@ -33,35 +33,33 @@ class MediaController extends Controller
                 throw new \Exception($validator->errors()->first());
             }
 
-            $files = $request->file('files');
-            foreach($files as $file)
+            $file = $request->file('file');
+
+            $ext = $file->getClientOriginalExtension();
+            $type = $this->getType($ext);
+            $pathUpload = $this->_pathUpload.$type.'/6';
+            $storage = $this->_upload($file, $pathUpload);
+
+            if($storage)
             {
-                $ext = $file->getClientOriginalExtension();
-                $type = $this->getType($ext);
-                $pathUpload = $this->_pathUpload.$type.'/'.$request->user()->id;
-                $storage = $this->_upload($file, $pathUpload);
-
-                if($storage)
+                if($type == 'image')
                 {
-                    if($type == 'image')
+                    $pathCover = $pathUpload.'/resize';
+                    $imageCover = $this->_resizeImage($file, $pathCover);
+
+                    if(!$imageCover)
                     {
-                        $pathCover = $pathUpload.'/resize';
-                        $imageCover = $this->_resizeImage($file, $pathCover);
-
-                        if(!$imageCover)
-                        {
-                            $this->_remove($storage);
-                        }
+                        $this->_remove($storage);
                     }
-
-                    Media::create([
-                        'name' => $file->hashName(),
-                        'path' => $storage,
-                        'extension' => $type,
-                        'path_cover' => !empty($imageCover) ? $pathCover.'/'.$file->hashName() : '',
-                        'user_id' => $request->user()->id
-                    ]);
                 }
+
+                Media::create([
+                    'name' => $file->hashName(),
+                    'path' => $storage,
+                    'extension' => $type,
+                    'path_cover' => !empty($imageCover) ? $pathCover.'/'.$file->hashName() : '',
+                    'user_id' => 6
+                ]);
             }
 
             return response()->json([

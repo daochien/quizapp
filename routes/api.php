@@ -23,6 +23,6 @@ Route::group([ 'prefix' => 'auth' ], function () {
     });
 });
 
-Route::group([ 'prefix' => 'media', 'middleware' => 'auth:api'], function() {
+Route::group([ 'prefix' => 'media'], function() {
     Route::post('upload', 'Api\MediaController@upload');
 });

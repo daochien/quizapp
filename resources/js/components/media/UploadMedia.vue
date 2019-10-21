@@ -17,15 +17,18 @@
                 <div class="item-review col-md-12">
                     <table class="table table-striped">
                         <tbody>
-                            <tr v-for="(item, index) in media.files" :key="index">
+                            <tr v-for="(item, index) in listInfo" :key="index">
                                 <td style="width: 10%">
                                     {{ index + 1 }}
                                 </td>
                                 <td > {{ item.name | limitString }} </td>
-                                <td style="width: 10%"> {{ Math.ceil(item.size / (1024 * 1024)) }}mb </td>
+                                <td style="width: 10%"> {{ Math.ceil(item.size / (1024 * 1024)) }} mb </td>
                                 <td style="width: 30%">
                                     <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-success" role="progressbar"
+                                        :style="{ width: item.percent + '%'}" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+
+                                        </div>
                                     </div>
                                 </td>
                                 <td style="width: 10%"><i class="fa fa-trash-o" @click="removeMedia(index)"></i></td>
@@ -42,27 +45,35 @@
 </template>
 <script>
 import { upload } from '@/apis/media.js';
-
+import axios from 'axios';
 export default {
 
     data() {
         return {
             media: {
                 files: [],
-                extentions: ''
+                extentions: '',
             },
-            data: new FormData(),
+            listInfo: [],
+
         }
     },
     methods: {
         onImageChange(e) {
             try {
                 let files = e.target.files || e.dataTransfer.files;
+                this.resetData();
                 if (!files.length)
                     return;
 
                 for (var i = files.length - 1; i >= 0; i--) {
                     this.media.files.push(files[i]);
+                    this.listInfo.push({
+                        name: files[i].name,
+                        size: files[i].size,
+                        type: files[i].type,
+                        percent: 0
+                    });
                 }
 
                 document.getElementById("files").value = [];
@@ -73,32 +84,32 @@ export default {
 
         async uploadMedia() {
             try {
-                this.prepareFields();
-                let data = await upload(this.data);
+                if (this.media.files.length > 0) {
+                    let self = this;
+                    let i = 0;
+                    for (i; i < this.media.files.length; i++) {
+                        let attachment = this.media.files[i];
+                        let data = new FormData();
+                        data.append('file', attachment);
+                        let result = await upload(data, function(uploadEvent) {
+                            self.listInfo[i].percent = Math.round((uploadEvent.loaded / uploadEvent.total)*100);
+                        });
+                    }
+                    this.media.files = [];
+                }
             } catch(error) {
                 console.log(error);
             }
         },
 
-        prepareFields() {
-            if (this.media.files.length > 0) {
-                for (var i = 0; i < this.media.files.length; i++) {
-                    let attachment = this.media.files[i];
-                    this.data.append('files[]', attachment);
-                }
-            }
-        },
-
         removeMedia(index) {
-            this.data = new FormData();
             this.media.files.splice(index, 1);
+            this.listInfo.splice(index, 1);
         },
-
         resetData() {
-            this.data = new FormData(); // Reset it completely
+            this.listInfo = [];
             this.media.files = [];
-        },
-
+        }
     }
 }
 </script>
