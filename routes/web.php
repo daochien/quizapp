@@ -15,20 +15,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
+/** routes auth */
+
+Route::get('login', 'AuthenController@login')->name('login');
+Route::get('register', 'AuthenController@register')->name('register');
+
+Route::post('signIn', 'AuthenController@signIn')->name('signIn');
+
+/** routes app */
 Route::group(['prefix' => 'app' , 'as' => 'admin.'], function() {
     Route::get('/', 'App\AppController@index')->name('index');
-    //Route::get('login', 'App\AppController@login')->name('login');
-    //Route::get('register', 'App\AppController@register')->name('register');
     Route::get('/{any}', 'App\AppController@index')->where('any', '.*');
 });
+
+
 
 Route::get('google', function () {
     return view('auth.googleAuth');
 });
-    
+
 Route::get('auth/google', 'AuthController@redirectToGoogle');
 Route::get('auth/google/callback', 'AuthController@handleGoogleCallback');

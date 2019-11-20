@@ -97,16 +97,7 @@ export const constantRouter = [
             },
         ]
     },
-    {
-        path: '/app/login',
-        name: 'Login',
-        component: () => import(/* webpackChunkName: "js/routes/login" */ '@/pages/auth/Login.vue')
-    },
-    {
-        path: '/app/register',
-        name: 'Register',
-        component: () => import(/* webpackChunkName: "js/routes/course" */ '@/pages/auth/Register.vue')
-    },
+
     {
         path: '*',
         redirect: '/app'
@@ -120,45 +111,45 @@ const router = new VueRouter({
 });
 
 //check login
-router.beforeEach( async (to, from, next) => {
-    let token = getToken();
+// router.beforeEach( async (to, from, next) => {
+//     let token = getToken();
 
-    if (to.matched.some(record => record.meta.requiresAuth)) {
+//     if (to.matched.some(record => record.meta.requiresAuth)) {
 
-        if (token) {
+//         if (token) {
 
-            try {
-                let status = store.getters['user/getIsLogin'];
+//             try {
+//                 let status = store.getters['user/getIsLogin'];
 
-                if(!status) {
-                    let { name, email } = await getUser();
-                    store.commit('user/set_is_login', true);
-                    store.commit('user/set_name', name);
-                    store.commit('user/set_email', email);
-                }
-                next();
+//                 if(!status) {
+//                     let { name, email } = await getUser();
+//                     store.commit('user/set_is_login', true);
+//                     store.commit('user/set_name', name);
+//                     store.commit('user/set_email', email);
+//                 }
+//                 next();
 
-            } catch(error) {
-                store.commit('user/set_is_login', false);
-                removeToken();
-                next({name: 'Login'});
-            }
-        } else {
+//             } catch(error) {
+//                 store.commit('user/set_is_login', false);
+//                 removeToken();
+//                 next({name: 'Login'});
+//             }
+//         } else {
 
-            next('app/login');
-        }
+//             next('app/login');
+//         }
 
-    } else {
-        //return;
-        if(token) {
-            if(to.name === 'Login' || to.name === 'Register') {
-                let redirect = from.name ? from.name : 'Dashboard'
+//     } else {
+//         //return;
+//         if(token) {
+//             if(to.name === 'Login' || to.name === 'Register') {
+//                 let redirect = from.name ? from.name : 'Dashboard'
 
-                next({name: redirect});
-            }
-        }
-        next();
-    }
-});
+//                 next({name: redirect});
+//             }
+//         }
+//         next();
+//     }
+// });
 
 export default router;
